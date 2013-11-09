@@ -1,0 +1,59 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+    margin:0;
+    font-family:'Lato', sans-serif;
+    text-align:center;
+    color: #000;
+    background-color:rgb(220, 220, 240);
+}
+
+#page {
+    width:90%;
+    min-width:800px;
+    position:relative;
+    left:5%;
+    top:25px;
+}
+
+header, nav, footer, #content {
+    padding:10px;
+    border:1px solid rgb(100, 100, 100);
+    border-top-width:0px;
+}
+
+header {
+    border-top-width:1px;
+    background-color:rgb(100, 120, 170);
+}
+
+nav {
+    background-color:rgb(100, 170, 140);
+}
+
+footer {
+    background-color:rgb(190, 100, 100);
+}
+
+#content {
+    background-color:rgb(255, 255, 255);
+}
+
+a, a:visited {
+    color:rgb(220, 220, 220);
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+ul li {
+    display:inline;
+    margin:0 1.2em;
+}
+
+p {
+    margin:2em 0;
+    color:#555;
+}

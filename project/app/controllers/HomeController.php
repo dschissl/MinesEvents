@@ -2,6 +2,12 @@
 
 class HomeController extends BaseController {
 
+    public function action_index()
+    {
+        //$this->layout->title = 'Home Page';
+        //$this->layout->content = 'content';
+    }
+    
 	/*
 	|--------------------------------------------------------------------------
 	| Default Home Controller
@@ -14,7 +20,7 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+    
 	public function showWelcome()
 	{
 		return View::make('hello');
