@@ -14,6 +14,6 @@ class EventController extends BaseController {
 
     public function showDetail($id) 
     {
-        return "id = ".$id;
+        return View::make('eventdetail')->with('id', $id);
     }
 }
