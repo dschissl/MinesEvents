@@ -7,21 +7,27 @@
     {{ HTML::script('script/master.js'); }}
     
     {{ HTML::style('css/master.css'); }}
+	
+	{{ HTML::style('css/bootstrap.min.css') }}
 </head>
     
 <body>
     <div id="page">
         <header>
             @section('header')
-                HEADER
+				<h1>Mines Events</h1>
+				<p>Find out what's happening on campus</p>
             @show
         </header>
         
         <nav>
             @section('navbar')
-                <a href="<?php echo asset('/'); ?>">Home</a>
-                &nbsp;|&nbsp;
-                <a href="<?php echo asset('newevent'); ?>">Create Event</a>
+				<ul class="nav nav-pills nav-justified">
+					<li class="active"><a href="<?php echo asset('/'); ?>">Home</a></li>
+					<li><a href="<?php echo asset('newevent'); ?>">Create Event</a></li>
+					<li><a href="">My Account</a></li>
+					<li><a href="">About</a></li>
+				</ul>
             @show
         </nav>
         
@@ -31,7 +37,7 @@
         
         <footer>
             @section('footer')
-                &copy; Copyright 2013
+                &copy; Copyright 2013 Derek Schissler, Kolten Robison, Tyler Lyons
             @show
         </footer>
     </div>

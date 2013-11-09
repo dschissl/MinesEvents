@@ -24,15 +24,21 @@ header, nav, footer, #content {
 
 header {
     border-top-width:1px;
-    background-color:rgb(100, 120, 170);
+    background-color:#85A5CC;
 }
 
 nav {
-    background-color:rgb(100, 160, 170);
+    background-color:#D0E4F2;
+}
+
+.nav-pills{
+	max-width:80%;
+	margin:auto;
 }
 
 footer {
-    background-color:rgb(120, 130, 150);
+    background-color:#4D5C94;
+	color:#BBB;
 }
 
 #content {
@@ -40,8 +46,10 @@ footer {
 }
 
 a, a:visited {
-    color:rgb(220, 220, 220);
     text-decoration:none;
+}
+a:visited{
+	color:#4A6491;
 }
 
 a:hover {
