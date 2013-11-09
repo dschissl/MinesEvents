@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('title')
-    Home
+    Create Event
 @endsection
 
 @section('content')
-    CONTENT
+    Create
 @endsection

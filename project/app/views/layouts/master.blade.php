@@ -20,6 +20,8 @@
         <nav>
             @section('navbar')
                 <a href="<?php echo asset('/'); ?>">Home</a>
+                &nbsp;|&nbsp;
+                <a href="<?php echo asset('newevent'); ?>">Create Event</a>
             @show
         </nav>
         
@@ -29,7 +31,7 @@
         
         <footer>
             @section('footer')
-                FOOTER
+                &copy; Copyright 2013
             @show
         </footer>
     </div>
