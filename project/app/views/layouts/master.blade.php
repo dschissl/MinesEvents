@@ -5,10 +5,9 @@
     <title>@yield('title')</title>
     
     {{ HTML::script('script/master.js'); }}
-    
     {{ HTML::style('css/master.css'); }}
-	
 	{{ HTML::style('css/bootstrap.min.css') }}
+	
 </head>
     
 <body>

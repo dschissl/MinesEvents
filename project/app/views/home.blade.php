@@ -2,6 +2,8 @@
 
 {{ HTML::style('css/home.css') }}
 
+{{ HTML::script('script/googleMaps.js'); }}
+
 @section('title')
     Home
 @endsection
@@ -13,4 +15,6 @@
 				<button class="btn btn-default" type="button">Go!</button>
 			</span>
     </div>
+	<div id="map-canvas"> <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used above in the js call -->
+	</div>
 @endsection

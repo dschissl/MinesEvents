@@ -1,8 +1,14 @@
 
 
 #searchgroup{
-	width:40%;
+	width:50%;
 	margin:auto;
 	margin-top:32px;
 	margin-bottom:32px;
+}
+
+#map-canvas{
+	height:500px;
+	width:500px;
+	margin:auto;
 }
