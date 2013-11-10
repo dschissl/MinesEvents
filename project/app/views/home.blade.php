@@ -15,6 +15,6 @@
 				<button class="btn btn-default" type="button">Go!</button>
 			</span>
     </div>
-	<div id="map-canvas"> <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used above in the js call -->
+	<div id="map-canvas"> <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
 	</div>
 @endsection
