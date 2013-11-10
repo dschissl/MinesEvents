@@ -5,7 +5,14 @@ body {
     font-family:'Lato', sans-serif;
     text-align:center;
     color: #000;
-    background-color:rgb(220, 220, 240);
+    /*background-color:rgb(220, 220, 240);*/
+	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #FFFFFF), color-stop(1, #C0D4E2));
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-radial-gradient(center, ellipse closest-corner, #FFFFFF 30%, #C0D4E2 100%);
+	/* Mozilla Firefox */ 
+	background-image: -moz-radial-gradient(center, ellipse closest-corner, #FFFFFF 30%, #C0D4E2 100%);
 }
 
 #page {
@@ -43,7 +50,7 @@ footer {
 }
 
 #content {
-    background-color:rgb(255, 255, 255);
+    background-color:rgba(255, 255, 255,0.3);
 }
 
 ul li {
