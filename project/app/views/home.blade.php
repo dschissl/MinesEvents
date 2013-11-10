@@ -16,7 +16,12 @@
 			</span>
     </div>
 	<div class="filterPanel">
-		
+		<div class="input-group filters">
+			<span class="input-group-addon">Contains</span><input type="text" class="form-control" placeholder="Tutoring, Pizza, etc.">
+		</div>
+		<div class="input-group filters">
+			<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="BBW250">
+		</div>
 	</div>
 	<div id="map-canvas"> <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
 	</div>
