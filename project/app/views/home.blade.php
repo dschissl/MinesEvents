@@ -12,9 +12,12 @@
 	<div class="input-group" id="searchgroup">
 		<input type="text" class="form-control" id="searchbar">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">Go!</button>
+				<button class="btn btn-default" type="button">Search</button>
 			</span>
     </div>
+	<div class="filterPanel">
+		
+	</div>
 	<div id="map-canvas"> <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
 	</div>
 @endsection

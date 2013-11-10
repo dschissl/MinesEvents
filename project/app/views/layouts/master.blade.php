@@ -18,7 +18,7 @@
 				<p>Find out what's happening on campus</p>
             @show
         </header>
-        
+
         <nav>
             @section('navbar')
 				<ul class="nav nav-pills nav-justified">
