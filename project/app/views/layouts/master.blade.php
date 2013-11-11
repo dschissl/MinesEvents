@@ -15,12 +15,28 @@
 	
 </head>
     
+	<div class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+	
 <body>
     <div id="page">
         <header>
             @section('header')
-				<h1>Mines Events</h1>
-				<p>Find out what's happening on campus</p>
+				<h1 class="headertext">Mines Events</h1>
+				<p class="headertext">Find out what's happening on campus</p>
             @show
         </header>
 

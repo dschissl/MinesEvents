@@ -20,7 +20,7 @@ body {
     min-width:800px;
     position:relative;
     left:5%;
-    top:25px;
+	top:50px;
 }
 
 header, nav, footer, #content {
@@ -66,4 +66,14 @@ ul li {
 p {
     margin:2em 0;
     color:#555;
+}
+
+.headertext{
+	width:50%;
+	margin-left:25%;
+}
+
+.navbar .container{
+	width:100%;
+	background-color:rgba(30,39,96,0.4);
 }
