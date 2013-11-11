@@ -1,0 +1,26 @@
+
+.inputpanel,.mappanel{
+	width:49%;
+	height:50%;
+	margin:auto;
+	padding:1%;
+}
+.inputpanel{
+	float:left;
+}
+.mappanel{
+	margin-right:0px;
+}
+
+.input-group{
+	width:50%;
+	margin-bottom:4%;
+	margin-left:25%;
+}
+.daygroup{
+	width:100%;
+}
+.daylabel{
+	padding:2px;
+	padding-bottom:12px;
+}
