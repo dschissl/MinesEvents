@@ -8,6 +8,11 @@
     {{ HTML::style('css/master.css'); }}
 	{{ HTML::style('css/bootstrap.min.css') }}
 	
+	{{ HTML::script('js/bootstrap.min.js'); }}
+	{{ HTML::script('js/jquery-2.0.3.min.js'); }}
+	{{ HTML::style('packages/megaboot/css/bootstrap-formhelpers.min.css') }}
+	{{ HTML::script('packages/megaboot/js/bootstrap-formhelpers.min.js'); }}
+	
 </head>
     
 <body>
