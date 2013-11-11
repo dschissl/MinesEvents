@@ -26,6 +26,7 @@
 		</div>
 		<span class="input-group-addon">Start Date</span><div class="bfh-datepicker filters" id="startdate" data-date="today" data-min="today"></div>
 		<span class="input-group-addon">End Date</span><div class="bfh-datepicker filters" id="enddate" data-date="today" data-min="today"></div>
+		<button type="button" class="btn btn-success" id="filterbutton">Filter</button>
 	</div>
 	<div class="resultsPanel">
 		<div class="list-group">
