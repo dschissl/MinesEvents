@@ -20,7 +20,7 @@ body {
     min-width:800px;
     position:relative;
     left:5%;
-	top:50px;
+	top:51px;
 }
 
 header, nav, footer, #content {
@@ -76,4 +76,5 @@ p {
 .navbar .container{
 	width:100%;
 	background-color:rgba(30,39,96,0.4);
+	border:1px black solid;
 }
