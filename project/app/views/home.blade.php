@@ -28,45 +28,26 @@
 		<span class="input-group-addon">End Date</span><div class="bfh-datepicker filters" id="enddate" data-date="today" data-min="today"></div>
 		<button type="button" class="btn btn-success" id="filterbutton">Filter</button>
 	</div>
+
 	<div class="resultsPanel">
 		<div class="list-group">
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 1</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 2</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 3</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 4</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 5</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 6</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
-			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Event 7</h4>
-				<p class="list-group-item-text">at this time</p>
-				<p class="list-group-item-text">this stuff is happening</p>
-			</a>
+            <?php
+                $events = DB::table('events')->get();
+                foreach ($events as $event) {
+                    $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
+                    $et = date_format(date_create($event->end_time), 'm/d/Y g:i A');
+                    
+                    echo '<a href="#" class="list-group-item">';
+                    echo '<h4 class="list-group-item-heading">'.$event->event_name.'</h4>';
+                    echo '<p class="list-group-item-text">'.$st.' - '.$et.'</p>';
+                    echo '<p class="list-group-item-text">'.$event->details.'</p>';
+                    echo'</a>';
+                }
+            ?>
 		</div>
 	</div>
-	<div id="map-canvas"> <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
+
+	<div id="map-canvas">
+        <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
 	</div>
 @endsection

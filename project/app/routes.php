@@ -17,6 +17,8 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', 'HomeController@showHome');
 
+Route::get('about', 'HomeController@showAbout');
+
 Route::get('newevent', 'EventController@showNewEvent');
 
 Route::get('events/{id}', 'EventController@showDetail');
