@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 {{ HTML::style('css/newevent.css') }}
+{{ HTML::script('js/jquery-2.0.3.min.js'); }}
 {{ HTML::script('script/googleMaps.js'); }}
 
 @section('title')

@@ -40,6 +40,9 @@ header {
 .register{
 	color:#CC0000;
 }
+.register:visited{
+	color:#CC0000;
+}
 .register:hover{
 	color:#AA0000;
 	cursor:pointer;

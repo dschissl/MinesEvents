@@ -39,14 +39,19 @@
                     $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
                     $et = date_format(date_create($event->end_time), 'm/d/Y g:i A');
                     
-                    echo '<a href="#" class="list-group-item">';
+                    echo '<div href="#" class="list-group-item">';
                     echo '<h4 class="list-group-item-heading">'.$event->event_name.'</h4>';
                     echo '<p class="list-group-item-text">'.$st.' - '.$et.'</p>';
                     echo '<p class="list-group-item-text">'.$event->details.'</p>';
-                    echo'</a>';
+					echo '<a href="#" class="eventLink">Show details</a>';
+                    echo'</div>';
 
-					$markers = $markers.'<marker name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'" />';
-					$markers = $markers.'<div>CONTENT</div>';
+					$markers = $markers.'<marker name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>';
+					$markers = $markers.
+					'<div>
+						<h2>'.$event->event_name.'</h2>
+						<p>'.$event->details.'</p>
+					</div>';
                 }
             ?>
 		</div>

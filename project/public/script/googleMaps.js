@@ -1,15 +1,35 @@
  var myMap;
 
 $(document).ready(function() {
+	loadScript();
+	//initialize();
+});
+
+function dropMarkers(){
 	var markerHolder = $("#markerHolder");
 	var markers = markerHolder.children("marker");
 	markers.each(function(i) {
-		alert($(this).attr("name"));
-		alert($(this).next().html());
+		var location = new google.maps.LatLng($(this).attr("latitude"),$(this).attr("longitude"));
+		var markerOptions = {
+			title: $(this).attr("name"),
+			map: myMap,
+			position: location,
+		};
+		var marker = new google.maps.Marker(markerOptions);
+	
+		var windowOptions = {
+			content: $(this).next().wrapAll('<div></div>').parent().html(),
+			maxWidth: 300,
+		};
+
+		var infoWindow = new google.maps.InfoWindow(windowOptions);
+
+		google.maps.event.addListener(marker,'click',function() {
+			infoWindow.open(myMap,marker);
+		});
+
 	});
-});
- 
- window.onload = loadScript;
+}
  
  function initialize() {
     var mapOptions = {
@@ -18,8 +38,7 @@ $(document).ready(function() {
         mapTypeId: google.maps.MapTypeId.SATELLITE
     };
     myMap = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-	
-	testMarker();
+	dropMarkers();
 }
 	  
 function loadScript() {
