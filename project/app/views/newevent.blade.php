@@ -23,7 +23,14 @@
 		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" id="enddate" data-date="today" data-min="today"></div>	</div>
 		<div class="daygroup"><span class="daylabel">Start Time</span><div class="bfh-timepicker" id="starttime"></div>	</div>
 		<div class="daygroup"><span class="daylabel">End Time</span><div class="bfh-timepicker" id="endtime"></div>	</div>
+		<button type="button" class="btn btn-success" id="filterbutton">Create</button>
 	</div>
 	<div class="mappanel">
+		<h5>Location</h5>
+		<div id="map-canvas">
+			<!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
+		</div>
+		<h5>Description</h5>
+		<textarea class="form-control" rows="7"></textarea>
 	</div>
 @endsection

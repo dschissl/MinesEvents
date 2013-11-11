@@ -1,20 +1,24 @@
 
 .inputpanel,.mappanel{
-	width:49%;
-	height:60%;
+	height:65%;
 	margin:auto;
 	padding:1%;
 }
 .inputpanel{
+	width:40%;
 	float:left;
+	background-color:rgba(170,170,170,0.2);
+	border-radius:6px;
+	border:1px #BBBBBB solid;
 }
 .mappanel{
+	width:60%;
 	margin-right:0px;
 }
 
 .input-group{
 	width:50%;
-	margin-bottom:4%;
+	margin-bottom:16px;
 	margin-left:25%;
 }
 .daygroup{
@@ -23,4 +27,19 @@
 .daylabel{
 	padding:2px;
 	padding-bottom:12px;
+}
+
+#map-canvas{
+	height:60%;
+	width:100%;
+	margin-bottom:16px;
+}
+
+.inputpanel .btn{
+	width:50%;
+	margin-top:16px;
+}
+
+#blah{
+	width:50%;
 }
