@@ -19,8 +19,10 @@
 			<option>Group 4</option>
 			<option>Group 5</option>
 		</select></div>
-		<div class="daygroup"><span class="daylabel">Start Date</span><div class="bfh-datepicker filters" id="startdate" data-date="today" data-min="today"></div>	</div>
-		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker filters" id="enddate" data-date="today" data-min="today"></div>	</div>
+		<div class="daygroup"><span class="daylabel">Start Date</span><div class="bfh-datepicker" id="startdate" data-date="today" data-min="today"></div>	</div>
+		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" id="enddate" data-date="today" data-min="today"></div>	</div>
+		<div class="daygroup"><span class="daylabel">Start Time</span><div class="bfh-timepicker" id="starttime"></div>	</div>
+		<div class="daygroup"><span class="daylabel">End Time</span><div class="bfh-timepicker" id="endtime"></div>	</div>
 	</div>
 	<div class="mappanel">
 	</div>
