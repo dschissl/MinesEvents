@@ -3,3 +3,9 @@ You need to enable rewrite_module in apache in order to serve correct URL links 
 In wamp, you can do this by clicking the icon, going to apache -> apache modules -> and enable rewrite_module
 
 https://kuler.adobe.com/Mathieu-color-theme-1243475/edit/?copy=true is what ive been using as the color theme
+
+
+======================
+Also, in order for the server to have write access to neccessary files, run chmod o+w -R   on the storage directory in app
+
+Then, you need to run the two .sql files to generate the tables and such
