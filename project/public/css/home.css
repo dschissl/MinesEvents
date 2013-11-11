@@ -14,15 +14,44 @@
 	margin-bottom:16px;
 }
 
-.filterPanel{
-	float:left;
+.filters{
+	margin-bottom:10%;
+}
+
+.resultsPanel, .filterPanel{
+	margin:0px;
+	float:right;
 	height:50%;
 	width:24%;
 	border:1px #BBBBBB solid;
 	padding:1%;
 	background-color:rgba(170,170,170,0.2);
+	border-radius:6px;
 }
 
-.filters{
-	margin-bottom:10%;
+.resultsPanel{
+	float:right;
+	overflow-y:auto;
+}
+
+.filterPanel{
+	float:left;
+}
+
+.list-group{
+	height:120px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 12px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
