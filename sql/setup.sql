@@ -7,6 +7,8 @@ create table events
   event_name char(50) not null,
   latitude float not null,
   longitude float not null,
+  start_time datetime not null,
+  end_time datetime not null,
   location char(150),
   details text(500)
 )

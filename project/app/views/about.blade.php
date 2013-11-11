@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('title')
-    Event Detail
+    About
 @endsection
 
 @section('content')
-    Detail for event {{ $id }}
+    About
 @endsection
