@@ -43,6 +43,11 @@ nav {
 	max-width:70%;
 	margin:auto;
 }
+.nav-pills li{
+	border:1px rgba(200,200,200,0.5) solid;
+	border-radius:4px;
+	background-color:rgba(200,200,200,0.2);
+}
 
 footer {
     background-color:#4D5C94;

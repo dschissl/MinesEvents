@@ -27,7 +27,7 @@
         <nav>
             @section('navbar')
 				<ul class="nav nav-pills nav-justified">
-					<li class="active"><a href="<?php echo asset('/'); ?>">Home</a></li>
+					<li><a href="<?php echo asset('/'); ?>">Home</a></li>
 					<li><a href="<?php echo asset('newevent'); ?>">Create Event</a></li>
 					<li><a href="">My Account</a></li>
 					<li><a href="">About</a></li>
