@@ -1,4 +1,13 @@
  var myMap;
+
+$(document).ready(function() {
+	var markerHolder = $("#markerHolder");
+	var markers = markerHolder.children("marker");
+	markers.each(function(i) {
+		alert($(this).attr("name"));
+		alert($(this).next().html());
+	});
+});
  
  window.onload = loadScript;
  

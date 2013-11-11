@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
-{{ HTML::style('css/home.css') }}
-{{ HTML::script('script/googleMaps.js'); }}
+	{{ HTML::style('css/home.css') }}
+	{{ HTML::script('js/jquery-2.0.3.min.js'); }}
+	{{ HTML::script('script/googleMaps.js'); }}
 
 @section('title')
     Home
@@ -32,6 +33,7 @@
 	<div class="resultsPanel">
 		<div class="list-group">
             <?php
+				$markers = "";
                 $events = DB::table('events')->get();
                 foreach ($events as $event) {
                     $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
@@ -42,6 +44,9 @@
                     echo '<p class="list-group-item-text">'.$st.' - '.$et.'</p>';
                     echo '<p class="list-group-item-text">'.$event->details.'</p>';
                     echo'</a>';
+
+					$markers = $markers.'<marker name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'" />';
+					$markers = $markers.'<div>CONTENT</div>';
                 }
             ?>
 		</div>
@@ -49,5 +54,8 @@
 
 	<div id="map-canvas">
         <!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
+	</div>
+	<div id="markerHolder" style="display:none;">
+		{{ $markers }}
 	</div>
 @endsection

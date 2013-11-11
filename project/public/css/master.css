@@ -34,6 +34,17 @@ header {
     background-color:#85A5CC;
 }
 
+.tab{
+	margin-left:16px;
+}
+.register{
+	color:#CC0000;
+}
+.register:hover{
+	color:#AA0000;
+	cursor:pointer;
+}
+
 nav {
     background-color:#D0E4F2;
 	height:64px;
