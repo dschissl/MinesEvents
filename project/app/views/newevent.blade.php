@@ -9,18 +9,18 @@
 @endsection
 
 @section('content')
-	<form action="<?php echo asset('eventcreated'); ?>">
+	<form action="<?php echo asset('eventcreated'); ?>" method="get">
     <div class="inputpanel">
 		<div class="input-group">	<span class="input-group-addon">Name</span><input type="text" class="form-control" placeholder="Event Name" name="name" required>	</div>
 		<div class="input-group">	<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="Where it is" name="location" required>	</div>
-		<div class="input-group">	<span class="input-group-addon"><input type="checkbox"></span><fieldset disabled><input type="text" class="form-control" placeholder="Public" name="public"></fieldset>	</div>
-		<div class="input-group">	<span class="input-group-addon">Group</span><select class="form-control name="group"">
+		<div class="input-group">	<span class="input-group-addon"><input type="checkbox" name="public"></span><fieldset disabled><input type="text" class="form-control" placeholder="Public"></fieldset>	</div>
+		<div class="input-group">	<span class="input-group-addon">Group</span><select class="form-control" name="group">
 			<option>None</option>
 		</select></div>
-		<div class="daygroup"><span class="daylabel">Start Date</span><div class="bfh-datepicker" id="startdate" data-date="today" data-min="today" name="daystart"></div>	</div>
-		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" id="enddate" data-date="today" data-min="today" name="dayend"></div>	</div>
-		<div class="daygroup"><span class="daylabel">Start Time</span><div class="bfh-timepicker" id="starttime" name="timestart"></div>	</div>
-		<div class="daygroup"><span class="daylabel">End Time</span><div class="bfh-timepicker" id="endtime" name="timeend"></div>	</div>
+		<div class="daygroup"><span class="daylabel">Start Date</span><div class="bfh-datepicker" data-date="today" data-min="today" name="daystart"></div>	</div>
+		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" type="text" data-date="today" data-min="today" name="dayend"></div>	</div>
+		<div class="daygroup"><span class="daylabel">Start Time</span><div class="bfh-timepicker" type="text"  name="timestart"></div>	</div>
+		<div class="daygroup"><span class="daylabel">End Time</span><div class="bfh-timepicker" type="text" name="timeend"></div>	</div>
 		<button type="submit" class="btn btn-success" id="filterbutton">Create</button>
 	</div>
 	<div class="mappanel">

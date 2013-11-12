@@ -10,6 +10,7 @@
 
 @section('content')
 	<?php
+		echo '<h1>'.Input::get('daystart').'</h1>';
 		DB::table('events')->insert(
 			array(
 			'event_id' => null, 
