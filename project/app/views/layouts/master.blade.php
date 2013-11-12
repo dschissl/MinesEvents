@@ -7,11 +7,8 @@
     {{ HTML::script('script/master.js'); }}
     {{ HTML::style('css/master.css'); }}
 	{{ HTML::style('css/bootstrap.min.css') }}
-	{{ HTML::style('css/bootstrap-formhelpers.min.css') }}
 	
 	{{ HTML::script('js/bootstrap.min.js'); }}
-	{{ HTML::script('js/jquery-2.0.3.min.js'); }}
-	{{ HTML::script('js/bootstrap-formhelpers.min.js'); }}
 	
 </head>
     

@@ -3,6 +3,10 @@
 	{{ HTML::style('css/home.css') }}
 	{{ HTML::script('js/jquery-2.0.3.min.js'); }}
 	{{ HTML::script('js/googleMaps.js'); }}
+	
+	{{ HTML::style('css/datepicker.css'); }}
+	{{ HTML::script('js/bootstrap-datepicker.js'); }}
+	{{ HTML::script('js/makepickers.js'); }}
 
 @section('title')
     Home
@@ -25,8 +29,8 @@
 		<div class="input-group filters">
 			<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc.">
 		</div>
-		<span class="input-group-addon">Start Date</span><div class="bfh-datepicker filters" id="startdate" data-date="today" data-min="today"></div>
-		<span class="input-group-addon">End Date</span><div class="bfh-datepicker filters" id="enddate" data-date="today" data-min="today"></div>
+		<div class="input-group filters">	<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystart" name="daystart"></div></div>
+		<div class="input-group filters">	<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayend" name="dayend"></div></div>
 		<button type="button" class="btn btn-success" id="filterbutton">Filter</button>
 	</div>
 
@@ -42,7 +46,7 @@
                     echo 
                         '<div class="list-group-item" onclick="selectMarker('.$event->event_id.');">
                             <h4 class="list-group-item-heading">'.$event->event_name.'</h4>
-                            <p class="list-group-item-text">'.$st.' - '.$et.'</p>
+                            <small class="list-group-item-text">'.$st.' - '.$et.'</small>
                             <p class="list-group-item-text">'.$event->details.'</p>
 					       <a href="'.asset('/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';

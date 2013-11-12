@@ -4,6 +4,10 @@
 {{ HTML::script('js/jquery-2.0.3.min.js'); }}
 {{ HTML::script('js/googleMaps.js'); }}
 
+{{ HTML::style('css/datepicker.css'); }}
+{{ HTML::script('js/bootstrap-datepicker.js'); }}
+{{ HTML::script('js/makepickers.js'); }}
+
 @section('title')
     Create Event
 @endsection
@@ -16,12 +20,10 @@
 		<div class="input-group">	<span class="input-group-addon"><input type="checkbox" name="public"></span><fieldset disabled><input type="text" class="form-control" placeholder="Public"></fieldset>	</div>
 		<div class="input-group">	<span class="input-group-addon">Group</span><select class="form-control" name="group">
 			<option>None</option>
-		</select></div>
-		<div class="daygroup"><span class="daylabel">Start Date</span><div class="bfh-datepicker" data-date="today" data-min="today" name="daystart"></div>	</div>
-		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" type="text" data-date="today" data-min="today" name="dayend"></div>	</div>
-		<div class="daygroup"><span class="daylabel">Start Time</span><div class="bfh-timepicker" type="text"  name="timestart"></div>	</div>
-		<div class="daygroup"><span class="daylabel">End Time</span><div class="bfh-timepicker" type="text" name="timeend"></div>	</div>
-		<button type="submit" class="btn btn-success" id="filterbutton">Create</button>
+		</select></div>	
+		<div class="input-group">	<span class="input-group-addon">Start Date</span>	<div data-date-format="yyyy-mm-dd">	<input class="form-control" type="text" id="daystart" name="daystart"></div></div>
+		<div class="input-group">	<span class="input-group-addon">End Date</span>	<div data-date-format="yyyy-mm-dd">	<input class="form-control" type="text" id="dayend" name="dayend"></div></div>
+		<button type="submit" class="btn btn-success" id="createbutton">Create</button>
 	</div>
 	<div class="mappanel">
 		<h5>Location</h5>

@@ -10,7 +10,6 @@
 
 @section('content')
 	<?php
-		echo '<h1>'.Input::get('daystart').'</h1>';
 		DB::table('events')->insert(
 			array(
 			'event_id' => null, 
@@ -18,8 +17,8 @@
 			'event_name' => Input::get('name'), 
 			'latitude' => 39.7516, 
 			'longitude' => -105.222, 
-			'start_time' => Input::get('daystart').' '.Input::get('timestart'), 
-			'end_time' => Input::get('dayend').' '.Input::get('timeend'), 
+			'start_time' => Input::get('daystart').' '.'00:00:00',
+			'end_time' => Input::get('dayend').' '.'00:00:00',
 			'location' => Input::get('location'), 
 			'Details' => Input::get('description')
 			)
