@@ -39,19 +39,21 @@
                     $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
                     $et = date_format(date_create($event->end_time), 'm/d/Y g:i A');
                     
-                    echo '<div href="#" class="list-group-item">';
-                    echo '<h4 class="list-group-item-heading">'.$event->event_name.'</h4>';
-                    echo '<p class="list-group-item-text">'.$st.' - '.$et.'</p>';
-                    echo '<p class="list-group-item-text">'.$event->details.'</p>';
-					echo '<a href="#" class="eventLink">Show details</a>';
-                    echo'</div>';
+                    echo 
+                        '<div class="list-group-item" onclick="selectMarker('.$event->event_id.');">
+                            <h4 class="list-group-item-heading">'.$event->event_name.'</h4>
+                            <p class="list-group-item-text">'.$st.' - '.$et.'</p>
+                            <p class="list-group-item-text">'.$event->details.'</p>
+					       <a href="'.asset('/events/'.$event->event_id).'" class="eventLink">Show details</a>
+                        </div>';
 
-					$markers = $markers.'<marker name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>';
 					$markers = $markers.
-					'<div>
-						<h2>'.$event->event_name.'</h2>
-						<p>'.$event->details.'</p>
-					</div>';
+                        '<marker id="'.$event->event_id.'" name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>
+                        <div>
+                            <h4>'.$event->event_name.'</h4>
+                            <p>'.$event->details.'</p>
+                            <a href="'.asset('/events/'.$event->event_id).'" class="eventLink">Show details</a>
+                        </div>';
                 }
             ?>
 		</div>

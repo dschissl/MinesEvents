@@ -1,46 +1,10 @@
- var myMap;
+var myMap;
+var markerArray = [];
 
 $(document).ready(function() {
 	loadScript();
-	//initialize();
 });
 
-function dropMarkers(){
-	var markerHolder = $("#markerHolder");
-	var markers = markerHolder.children("marker");
-	markers.each(function(i) {
-		var location = new google.maps.LatLng($(this).attr("latitude"),$(this).attr("longitude"));
-		var markerOptions = {
-			title: $(this).attr("name"),
-			map: myMap,
-			position: location,
-		};
-		var marker = new google.maps.Marker(markerOptions);
-	
-		var windowOptions = {
-			content: $(this).next().wrapAll('<div></div>').parent().html(),
-			maxWidth: 300,
-		};
-
-		var infoWindow = new google.maps.InfoWindow(windowOptions);
-
-		google.maps.event.addListener(marker,'click',function() {
-			infoWindow.open(myMap,marker);
-		});
-
-	});
-}
- 
- function initialize() {
-    var mapOptions = {
-        center: new google.maps.LatLng(39.751244,-105.222260),	//inbetween kafadar and gugenheim
-        zoom: 17,
-        mapTypeId: google.maps.MapTypeId.SATELLITE
-    };
-    myMap = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-	dropMarkers();
-}
-	  
 function loadScript() {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
@@ -48,28 +12,115 @@ function loadScript() {
 	document.body.appendChild(script);
 }
 
-function testMarker(){
-	var location = new google.maps.LatLng(39.751244,-105.222260);
-	
-	var markerOptions = {
-		title: "Test Event Marker",
-		map: myMap,
-		position: location,
-	};
-	var marker = new google.maps.Marker(markerOptions);
-	
-	var windowOptions = {
-		content: '<h2>Cult Meeting #3</h2>'+
-			'<h4>Today we choose outfits</h4>'+
-			'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
-			'Donec ullamcorper magna id lacus posuere, eu sollicitudin justo blandit. Nullam diam purus, viverra sed tortor vitae, rhoncus '+
-			'scelerisque enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-		maxWidth: 300
-	};
-		
-	var infoWindow = new google.maps.InfoWindow(windowOptions);
+function initialize() {
+    var mapElem = $("#map-canvas");
+    if (mapElem.length > 0) {
+        myMap = new google.maps.Map(mapElem[0], 
+        {
+            center: new google.maps.LatLng(39.751244,-105.222260),	//inbetween kafadar and gugenheim
+            zoom: 17,
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        });
+        
+        dropMarkers();
+    }
+}
 
-	google.maps.event.addListener(marker,'click',function() {
-		infoWindow.open(myMap,marker);
+function dropMarkers(){
+	var markerHolder = $("#markerHolder");
+	var markers = markerHolder.children("marker");
+	markers.each(function(i) {
+        var markerElem = $(this);
+        var infoElem = $(this).next();
+        markerArray.push(new MinesMarker(markerElem, infoElem));
 	});
+    markerHolder.remove(); //clean-up
+}
+
+function selectMarker(id) {
+    for (var i = 0; i < markerArray.length; i++) {
+        if (markerArray[i].getId() == id) {
+            markerArray[i].select();       
+        }
+    }
+}
+
+function unselectAllMarkers() {
+    for (var i = 0; i < markerArray.length; i++) {
+        markerArray[i].unselect(); 
+    }
+}
+
+
+
+function MinesMarker(el, infoEl) {
+    var elem = $(el);
+    var infoElem = $(infoEl);
+    this.id = elem.attr("id");
+    this.name = elem.attr("name");
+    this.latitude = elem.attr("latitude");
+    this.longitude = elem.attr("longitude");
+    this.infoHtml = infoElem.wrapAll('<div></div>').parent().html();
+    this.infoWindow = this.getInfoWindow();
+    this.marker = this.getMarker();
+    this.selected = false;
+}
+
+MinesMarker.prototype.getId = function() {
+    return this.id;   
+}
+
+MinesMarker.prototype.getMarker = function() {
+    var me = this;
+    if (me.marker) 
+        return me.marker;
+    
+    me.marker = new google.maps.Marker({
+        title: me.name,
+        map: myMap,
+        position: new google.maps.LatLng(me.latitude, me.longitude)
+    });
+        
+    google.maps.event.addListener(me.getMarker(), 'click', function() {
+        me.select();
+    });
+    google.maps.event.addListener(me.getMarker(), 'mouseover', function() {
+        me.highlight(true);
+    });
+    google.maps.event.addListener(me.getMarker(), 'mouseout', function() {
+        if (!me.selected)
+            me.highlight(false);
+    });
+    
+    return me.marker;
+}
+
+MinesMarker.prototype.getInfoWindow = function() {
+    var me = this;
+    if (me.infoWindow)
+        return me.infoWindow;
+    
+    me.infoWindow = new google.maps.InfoWindow({
+        content: me.infoHtml,
+        maxWidth: 250
+    });
+    
+    return me.infoWindow;
+}
+
+MinesMarker.prototype.select = function() {
+    unselectAllMarkers();  
+    this.selected = true;
+    this.highlight(true);
+    this.getInfoWindow().open(myMap, this.getMarker());
+}
+
+MinesMarker.prototype.unselect = function() {
+    this.selected = false;
+    this.highlight(false);
+    this.getInfoWindow().close();
+}
+
+MinesMarker.prototype.highlight = function(isHighlight) {
+    //change color maybe?
 }
