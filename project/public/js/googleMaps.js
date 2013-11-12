@@ -94,11 +94,12 @@ if (this.id != "-1"){
             me.highlight(false);
     });
 }else{
-	locMarker = me.marker;
 	google.maps.event.addListener(myMap,'click',function(event){
-		locMarker.setMap(null);
-		locMarker.setPosition(event.latLng);
-		locMarker.setMap(myMap);
+		me.marker.setMap(null);
+		me.marker.setPosition(event.latLng);
+		me.marker.setMap(myMap);
+		$('#lat').val(event.latLng.lat());
+		$('#long').val(event.latLng.lng());
 	});
 }
     

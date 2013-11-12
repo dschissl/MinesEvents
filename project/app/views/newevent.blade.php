@@ -67,6 +67,10 @@
                     <option>PM</option>
                 </select>
             </div>
+			<div>
+				<input type="hidden" name="lat" id="lat" value="39.751244"/>
+				<input type="hidden" name="long" id="long" value="-105.222260"/>
+			</div>
             
 			<script>
                 $("input[type=number]").bind("keydown", function(event) {
