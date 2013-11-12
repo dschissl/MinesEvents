@@ -40,3 +40,8 @@
 	width:50%;
 	margin-top:16px;
 }
+
+textarea{
+	height:25%;
+	width:100%;
+}

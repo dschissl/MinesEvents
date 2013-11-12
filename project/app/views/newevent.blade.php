@@ -32,6 +32,6 @@
 			<!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
 		</div>
 		<h5>Description</h5>
-		<textarea class="form-control" rows="7" placeholder="Please enter a full detailed description of your event"></textarea>
+		<textarea rows="7" placeholder="Please enter a full detailed description of your event"></textarea>
 	</div>
 @endsection
