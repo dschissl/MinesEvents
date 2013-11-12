@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+	<form action="<?php echo asset('eventcreated'); ?>">
     <div class="inputpanel">
 		<div class="input-group">	<span class="input-group-addon">Name</span><input type="text" class="form-control" placeholder="Event Name">	</div>
 		<div class="input-group">	<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="Where it is">	</div>
@@ -20,7 +21,7 @@
 		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" id="enddate" data-date="today" data-min="today"></div>	</div>
 		<div class="daygroup"><span class="daylabel">Start Time</span><div class="bfh-timepicker" id="starttime"></div>	</div>
 		<div class="daygroup"><span class="daylabel">End Time</span><div class="bfh-timepicker" id="endtime"></div>	</div>
-		<button type="button" class="btn btn-success" id="filterbutton">Create</button>
+		<button type="submit" class="btn btn-success" id="filterbutton">Create</button>
 	</div>
 	<div class="mappanel">
 		<h5>Location</h5>
@@ -30,4 +31,6 @@
 		<h5>Description</h5>
 		<textarea rows="7" placeholder="Please enter a full detailed description of your event"></textarea>
 	</div>
+	
+	</form>
 @endsection

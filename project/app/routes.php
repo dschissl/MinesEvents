@@ -21,4 +21,6 @@ Route::get('about', 'HomeController@showAbout');
 
 Route::get('newevent', 'EventController@showNewEvent');
 
+Route::get('eventcreated', 'EventController@showEventCreated');
+
 Route::get('events/{id}', 'EventController@showDetail');

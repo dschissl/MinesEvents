@@ -11,6 +11,10 @@ class EventController extends BaseController {
 	{
 		return View::make('newevent');
 	}
+	
+	public function showEventCreated(){
+		return View::make('eventcreated');
+	}
 
     public function showDetail($id) 
     {
