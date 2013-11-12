@@ -14,14 +14,16 @@
 			array(
 			'event_id' => null, 
 			'user_id' => 0, 
-			'event_name' => 'Created Event', 
+			'event_name' => Input::get('name'), 
 			'latitude' => 39.7516, 
 			'longitude' => -105.222, 
-			'start_time' => '2013-11-15 9:30:00', 
-			'end_time' => '2013-11-15 9:50:00', 
-			'location' => 'Africa', 
-			'Details' => 'This is going to be a really sweet event'
+			'start_time' => Input::get('daystart').' '.Input::get('timestart'), 
+			'end_time' => Input::get('dayend').' '.Input::get('timeend'), 
+			'location' => Input::get('location'), 
+			'Details' => Input::get('description')
 			)
 		);
+		
+		echo '<div class="alert alert-success"><strong>Success!</strong> You have created a new event!</div>';
 	?>
 @endsection
