@@ -67,6 +67,10 @@
                     <option>PM</option>
                 </select>
             </div>
+			<div>
+				<input type="hidden" name="lat" id="lat" value="39.751244"/>
+				<input type="hidden" name="long" id="long" value="-105.222260"/>
+			</div>
             
 			<script>
                 function fmt(n) { return n > 9 ? "" + n: "0" + n; }
@@ -132,6 +136,8 @@
 		<h5>Description</h5>
 		<textarea rows="7" placeholder="Please enter a full detailed description of your event" name="description" required></textarea>
 	</div>
-	
+		<div id="markerHolder" style="display:none;">
+			<marker latitude="39.751244" longitude="-105.222260" id="-1" name="New Event"></marker>
+		</div>
 	</form>
 @endsection
