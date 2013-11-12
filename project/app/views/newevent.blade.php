@@ -69,6 +69,34 @@
             </div>
             
 			<script>
+                
+                function fixNumberBox(box, event) {
+                    box = $(box);
+                    var val = parseInt(box.val());
+                    if (isNaN(val)) {
+                        val = "";
+                    }
+                    else {
+                        var max = box.attr("max");
+                        if (max) {
+                            if (val > max) {
+                                val = max;
+                                event.preventDefault();
+                            }
+                        }
+                        
+                        var min = box.attr("min");
+                        if (min) {
+                            if (val < min) {
+                                val = min;
+                                event.preventDefault();
+                            }
+                        }
+                    }
+                    
+                    box.val(val);
+                }
+                
                 $("input[type=number]").bind("keydown", function(event) {
                     var charCode = (event.which) ? event.which : event.keyCode
                     if (charCode > 31 && (charCode < 48 || charCode > 57))  {
@@ -80,23 +108,15 @@
                         var newVal = parseInt(oldVal + addedChar);
                         if (isNaN(newVal)) {
                             oldVal = "";
+                            $(this).val("");
                         }
                         else {
-                            var max = $(this).attr("max");
-                            if (newVal > max) {
-                                oldVal = max;
-                                event.preventDefault();
-                            }
-                            
-                            var min = $(this).attr("min");
-                            if (newVal < min) {
-                                oldVal = min;
-                                event.preventDefault();
-                            }
+                            fixNumberBox(this, event);
                         }
-                        
-                        $(this).val(oldVal);
                     }
+                });
+                $("input[type=number]").bind("change", function(event) {
+                    fixNumberBox(this, event);
                 });
                  $("#minutestart").change(function(){
                     var num = parseInt($("#minutestart").val());
