@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <form action="<?php echo asset('eventcreated'); ?>" method="get">
+    <form action="<?php echo asset('/index.php/eventcreated'); ?>" method="get">
         <div class="inputpanel">
             <div class="input-group">	
                 <span class="input-group-addon">Name</span>

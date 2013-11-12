@@ -41,10 +41,10 @@
         <nav>
             @section('navbar')
 				<ul class="nav nav-pills nav-justified">
-					<li><a href="<?php echo asset('/'); ?>">Home</a></li>
-					<li><a href="<?php echo asset('newevent'); ?>">Create Event</a></li>
-					<li><a href="<?php echo asset('/'); ?>">My Account</a></li>
-					<li><a href="<?php echo asset('about'); ?>">About</a></li>
+					<li><a href="<?php echo asset('/index.php/'); ?>">Home</a></li>
+					<li><a href="<?php echo asset('/index.php/newevent'); ?>">Create Event</a></li>
+					<li><a href="<?php echo asset('/index.php/'); ?>">My Account</a></li>
+					<li><a href="<?php echo asset('/index.php/about'); ?>">About</a></li>
 				</ul>
             @show
         </nav>

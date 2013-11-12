@@ -52,7 +52,7 @@
                             <h4 class="list-group-item-heading">'.$event->event_name.'</h4>
                             <small class="list-group-item-text">'.$st.' - '.$et.'</small>
                             <p class="list-group-item-text">'.$event->details.'</p>
-					       <a href="'.asset('/events/'.$event->event_id).'" class="eventLink">Show details</a>
+					       <a href="'.asset('/index.php/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';
 
 					$markers = $markers.
@@ -60,7 +60,7 @@
                         <div>
                             <h4>'.$event->event_name.'</h4>
                             <p>'.$event->details.'</p>
-                            <a href="'.asset('/events/'.$event->event_id).'" class="eventLink">Show details</a>
+                            <a href="'.asset('/index.php/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';
                 }
             ?>
