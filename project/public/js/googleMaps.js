@@ -1,5 +1,6 @@
 var myMap;
 var markerArray = [];
+var locMarker;
 
 $(document).ready(function() {
 	loadScript();
@@ -24,6 +25,8 @@ function initialize() {
         
         dropMarkers();
     }
+
+	
 }
 
 function dropMarkers(){
@@ -50,8 +53,6 @@ function unselectAllMarkers() {
         markerArray[i].unselect(); 
     }
 }
-
-
 
 function MinesMarker(el, infoEl) {
     var elem = $(el);
@@ -81,6 +82,7 @@ MinesMarker.prototype.getMarker = function() {
         position: new google.maps.LatLng(me.latitude, me.longitude)
     });
         
+if (this.id != "-1"){
     google.maps.event.addListener(me.getMarker(), 'click', function() {
         me.select();
     });
@@ -91,6 +93,14 @@ MinesMarker.prototype.getMarker = function() {
         if (!me.selected)
             me.highlight(false);
     });
+}else{
+	locMarker = me.marker;
+	google.maps.event.addListener(myMap,'click',function(event){
+		locMarker.setMap(null);
+		locMarker.setPosition(event.latLng);
+		locMarker.setMap(myMap);
+	});
+}
     
     return me.marker;
 }

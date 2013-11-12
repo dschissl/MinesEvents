@@ -132,6 +132,8 @@
 		<h5>Description</h5>
 		<textarea rows="7" placeholder="Please enter a full detailed description of your event" name="description" required></textarea>
 	</div>
-	
+		<div id="markerHolder" style="display:none;">
+			<marker latitude="39.751244" longitude="-105.222260" id="-1" name="New Event"></marker>
+		</div>
 	</form>
 @endsection
