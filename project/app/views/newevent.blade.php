@@ -51,7 +51,7 @@
             </div>
             <div class="input-group">	
                 <span class="input-group-addon">Start Time</span>
-                <input type="number" class="form-control" placeholder="Hour" name="hourstart" max="23" min="0" value="12" id="hourstart" />
+                <input type="number" class="form-control" placeholder="Hour" name="hourstart" max="12" min="1" value="12" id="hourstart" />
                 <input type="number" class="form-control" placeholder="Minute" name="minutestart" max="59" min="0" value="00" step="10" id="minutestart" />
                 <select class="form-control" name="halfdaystart">
                     <option selected="selected">AM</option>
@@ -60,7 +60,7 @@
             </div>
             <div class="input-group">	
                 <span class="input-group-addon">End Time</span>
-                <input type="number" class="form-control number" placeholder="Hour" name="hourend" max="23" min="0" value="12" id="hourend" />
+                <input type="number" class="form-control" placeholder="Hour" name="hourend" max="12" min="1" value="12" id="hourend" />
                 <input type="number" class="form-control" placeholder="Minute" name="minuteend" max="59" min="0" value="00" step="10" id="minuteend" />
                 <select class="form-control" name="halfdayend">
                     <option selected="selected">AM</option>
@@ -69,27 +69,31 @@
             </div>
             
 			<script>
+                function fmt(n) { return n > 9 ? "" + n: "0" + n; }
                 
-                function fixNumberBox(box, event) {
+                function fixNumberBox(box, expVal, event) {
                     box = $(box);
                     var val = parseInt(box.val());
-                    if (isNaN(val)) {
+                    if (!expVal)
+                        expVal = val;
+                    
+                    if (isNaN(expVal)) {
                         val = "";
                     }
                     else {
                         var max = box.attr("max");
                         if (max) {
-                            if (val > max) {
+                            if (expVal > max) {
                                 val = max;
-                                event.preventDefault();
+                                if (event) event.preventDefault();
                             }
                         }
                         
                         var min = box.attr("min");
                         if (min) {
-                            if (val < min) {
+                            if (expVal < min) {
                                 val = min;
-                                event.preventDefault();
+                                if (event) event.preventDefault();
                             }
                         }
                     }
@@ -107,40 +111,16 @@
                         var oldVal = parseInt($(this).val());
                         var newVal = parseInt(oldVal + addedChar);
                         if (isNaN(newVal)) {
-                            oldVal = "";
                             $(this).val("");
                         }
                         else {
-                            fixNumberBox(this, event);
+                            fixNumberBox(this, newVal, event);
                         }
                     }
                 });
                 $("input[type=number]").bind("change", function(event) {
-                    fixNumberBox(this, event);
+                    fixNumberBox(this);
                 });
-                 $("#minutestart").change(function(){
-                    var num = parseInt($("#minutestart").val());
-                    if(num < '10'){
-                        $("#minutestart").val('0'+$number);
-                    }
-                 });
-			 $("#hourstart").change(function(){
-			    var num = parseInt($("#hourstart").val());
-				if(num < '10'){
-					$("#hourstart").val('0'+$number);
-				}
-			});
-			$("#minuteend").change(function(){
-				if($("#minuteend").val() == '0'){
-					$("#minuteend").val('00');
-				}
-			});
-			 $("#hourend").change(function(){
-			 var $number = parseInt($("#hourend").val());
-				if($number < '10'){
-					$("#hourend").val('0'+$number);
-				}
-			});
 			</script>
 		<button type="submit" class="btn btn-success" id="createbutton">Create</button>
 	</div>
