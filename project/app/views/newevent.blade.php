@@ -2,7 +2,7 @@
 
 {{ HTML::style('css/newevent.css') }}
 {{ HTML::script('js/jquery-2.0.3.min.js'); }}
-{{ HTML::script('script/googleMaps.js'); }}
+{{ HTML::script('js/googleMaps.js'); }}
 
 @section('title')
     Create Event
