@@ -14,11 +14,7 @@
 		<div class="input-group">	<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="Where it is">	</div>
 		<div class="input-group">	<span class="input-group-addon"><input type="checkbox"></span><fieldset disabled><input type="text" class="form-control" placeholder="Public"></fieldset>	</div>
 		<div class="input-group">	<span class="input-group-addon">Group</span><select class="form-control">
-			<option>Group 1</option>
-			<option>Group 2</option>
-			<option>Group 3</option>
-			<option>Group 4</option>
-			<option>Group 5</option>
+			<option>None</option>
 		</select></div>
 		<div class="daygroup"><span class="daylabel">Start Date</span><div class="bfh-datepicker" id="startdate" data-date="today" data-min="today"></div>	</div>
 		<div class="daygroup"><span class="daylabel">End Date</span><div class="bfh-datepicker" id="enddate" data-date="today" data-min="today"></div>	</div>
