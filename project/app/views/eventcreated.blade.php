@@ -17,8 +17,8 @@
 			'event_name' => Input::get('name'), 
 			'latitude' => 39.7516, 
 			'longitude' => -105.222, 
-			'start_time' => Input::get('daystart').' '.'00:00:00',
-			'end_time' => Input::get('dayend').' '.'00:00:00',
+			'start_time' => Input::get('daystart').' '.Input::get('hourstart').":".Input::get('minutestart').":00",
+			'end_time' => Input::get('dayend').' '.Input::get('hourend').":".Input::get('minuteend').":00",
 			'location' => Input::get('location'), 
 			'Details' => Input::get('description')
 			)

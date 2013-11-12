@@ -23,6 +23,40 @@
 		</select></div>	
 		<div class="input-group">	<span class="input-group-addon">Start Date</span>	<div data-date-format="yyyy-mm-dd">	<input class="form-control" type="text" id="daystart" name="daystart"></div></div>
 		<div class="input-group">	<span class="input-group-addon">End Date</span>	<div data-date-format="yyyy-mm-dd">	<input class="form-control" type="text" id="dayend" name="dayend"></div></div>
+		<div class="input-group">	
+			<span class="input-group-addon">Start Time</span>
+			<input type="number" class="form-control" placeholder="Hour" name="hourstart" max="23" min="0" value="12" id="hourstart">
+			<input type="number" class="form-control" placeholder="Minute" name="minutestart" max="59" min="0" value="00" step="10" id="minutestart">
+		</div>
+		<div class="input-group">	
+			<span class="input-group-addon">End Time</span>
+			<input type="number" class="form-control" placeholder="Hour" name="hourend" max="23" min="0" value="12" id="hourend">
+			<input type="number" class="form-control" placeholder="Minute" name="minuteend" max="59" min="0" value="00" step="10" id="minuteend">
+		</div>
+			<script>
+			 $("#minutestart").change(function(){
+				if($("#minutestart").val() == '0'){
+					$("#minutestart").val('00');
+				}
+			});
+			 $("#hourstart").change(function(){
+			 var $number = parseInt($("#hourstart").val());
+				if($number < '10'){
+					$("#hourstart").val('0'+$number);
+				}
+			});
+			$("#minuteend").change(function(){
+				if($("#minuteend").val() == '0'){
+					$("#minuteend").val('00');
+				}
+			});
+			 $("#hourend").change(function(){
+			 var $number = parseInt($("#hourend").val());
+				if($number < '10'){
+					$("#hourend").val('0'+$number);
+				}
+			});
+			</script>
 		<button type="submit" class="btn btn-success" id="createbutton">Create</button>
 	</div>
 	<div class="mappanel">

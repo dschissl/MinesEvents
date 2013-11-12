@@ -29,8 +29,12 @@
 		<div class="input-group filters">
 			<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc.">
 		</div>
-		<div class="input-group filters">	<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystart" name="daystart"></div></div>
-		<div class="input-group filters">	<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayend" name="dayend"></div></div>
+		<div class="input-group filters">	
+			<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystart" name="daystart"></div>
+		</div>
+		<div class="input-group filters">	
+			<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayend" name="dayend"></div>
+		</div>
 		<button type="button" class="btn btn-success" id="filterbutton">Filter</button>
 	</div>
 
