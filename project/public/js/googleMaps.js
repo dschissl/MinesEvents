@@ -79,7 +79,8 @@ MinesMarker.prototype.getMarker = function() {
     me.marker = new google.maps.Marker({
         title: me.name,
         map: myMap,
-        position: new google.maps.LatLng(me.latitude, me.longitude)
+        position: new google.maps.LatLng(me.latitude, me.longitude),
+        icon: "https://chart.googleapis.com/chart?chst=d_map_pin_letter_withshadow&chld=%E2%80%A2|85A5CC"   
     });
         
 if (this.id != "-1"){
