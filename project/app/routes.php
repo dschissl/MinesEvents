@@ -15,12 +15,19 @@
 Route::pattern('id', '[0-9]+');
 
 
+//HOME CONTROLLER
 Route::get('/', 'HomeController@showHome');
 
 Route::get('about', 'HomeController@showAbout');
 
+//EVENT CONTROLLER
 Route::get('newevent', 'EventController@showNewEvent');
 
 Route::get('eventcreated', 'EventController@showEventCreated');
 
 Route::get('events/{id}', 'EventController@showDetail');
+
+//ACCOUNT CONTROLLER
+Route::get('newaccount', 'AccountController@showNewAccount');
+
+Route::get('account', 'AccountController@showAccount');

@@ -23,7 +23,7 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
-			<a href="#" class="tab register">Not a member?</a>
+			<a href="<?php echo asset('/index.php/newaccount'); ?>" class="tab register">Not a member?</a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -43,7 +43,7 @@
 				<ul class="nav nav-pills nav-justified">
 					<li><a href="<?php echo asset('/index.php/'); ?>">Home</a></li>
 					<li><a href="<?php echo asset('/index.php/newevent'); ?>">Create Event</a></li>
-					<li><a href="<?php echo asset('/index.php/'); ?>">My Account</a></li>
+					<li><a href="<?php echo asset('/index.php/account'); ?>">My Account</a></li>
 					<li><a href="<?php echo asset('/index.php/about'); ?>">About</a></li>
 				</ul>
             @show

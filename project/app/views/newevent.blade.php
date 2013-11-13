@@ -53,7 +53,7 @@
                 <span class="input-group-addon">Start Time</span>
                 <input type="number" class="form-control" placeholder="Hour" name="hourstart" max="12" min="1" value="12" id="hourstart" />
                 <input type="number" class="form-control" placeholder="Minute" name="minutestart" max="59" min="0" value="00" step="10" id="minutestart" />
-                <select class="form-control" name="halfdaystart">
+                <select class="form-control" name="daypartstart">
                     <option selected="selected">AM</option>
                     <option>PM</option>
                 </select>
@@ -62,7 +62,7 @@
                 <span class="input-group-addon">End Time</span>
                 <input type="number" class="form-control" placeholder="Hour" name="hourend" max="12" min="1" value="12" id="hourend" />
                 <input type="number" class="form-control" placeholder="Minute" name="minuteend" max="59" min="0" value="00" step="10" id="minuteend" />
-                <select class="form-control" name="halfdayend">
+                <select class="form-control" name="daypartend">
                     <option selected="selected">AM</option>
                     <option>PM</option>
                 </select>

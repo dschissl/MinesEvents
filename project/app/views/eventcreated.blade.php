@@ -10,6 +10,16 @@
 
 @section('content')
 	<?php
+        function getDateTimeString($dateStr, $hours, $mins, $dayPartStr) {
+            if ($dayPartStr == 'PM') {
+                $hours = $hours + 12;
+            }
+                
+            $date = new DateTime($dateStr);
+            $date->setTime($hours, $mins);
+            return $date->format('Y-m-d H:i:s');
+        }
+
 		DB::table('events')->insert(
 			array(
 			'event_id' => null, 
@@ -17,8 +27,8 @@
 			'event_name' => Input::get('name'), 
 			'latitude' => Input::get('lat'), 
 			'longitude' => Input::get('long'),
-			'start_time' => Input::get('daystart').' '.Input::get('hourstart').":".Input::get('minutestart').":00",
-			'end_time' => Input::get('dayend').' '.Input::get('hourend').":".Input::get('minuteend').":00",
+			'start_time' => getDateTimeString(Input::get('daystart'), Input::get('hourstart'), Input::get('minutestart'), Input::get('daypartstart')),
+			'end_time' => getDateTimeString(Input::get('dayend'), Input::get('hourend'), Input::get('minuteend'), Input::get('daypartend')),
 			'location' => Input::get('location'), 
 			'Details' => Input::get('description')
 			)
