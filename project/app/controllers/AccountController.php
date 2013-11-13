@@ -4,7 +4,7 @@ class AccountController extends BaseController {
 
 	public function showNewAccount()
 	{
-		return View::make('newaccount');
+		return View::make('newaccount')->with('failed',"false");;
 	}
 
     public function showAccount() 
@@ -26,7 +26,7 @@ class AccountController extends BaseController {
 		$user->password = Hash::make($password);
 		$user->save();
 		}catch( Exception $e ) {
-                return View::make('newaccount');
+                return View::make('newaccount')->with('failed',"true");
         }
         return View::make('accountcreated');
     }
