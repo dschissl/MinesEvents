@@ -52,7 +52,7 @@
             <div class="input-group">	
                 <span class="input-group-addon">Start Time</span>
                 <input type="number" class="form-control" placeholder="Hour" name="hourstart" max="12" min="1" value="12" id="hourstart" />
-                <input type="number" class="form-control" placeholder="Minute" name="minutestart" max="59" min="0" value="00" step="10" id="minutestart" />
+                <input type="number" class="form-control fmt-zero" placeholder="Minute" name="minutestart" max="59" min="0" value="00" step="10" id="minutestart" />
                 <select class="form-control" name="daypartstart">
                     <option selected="selected">AM</option>
                     <option>PM</option>
@@ -61,7 +61,7 @@
             <div class="input-group">	
                 <span class="input-group-addon">End Time</span>
                 <input type="number" class="form-control" placeholder="Hour" name="hourend" max="12" min="1" value="12" id="hourend" />
-                <input type="number" class="form-control" placeholder="Minute" name="minuteend" max="59" min="0" value="00" step="10" id="minuteend" />
+                <input type="number" class="form-control fmt-zero" placeholder="Minute" name="minuteend" max="59" min="0" value="00" step="10" id="minuteend" />
                 <select class="form-control" name="daypartend">
                     <option selected="selected">AM</option>
                     <option>PM</option>
@@ -73,57 +73,35 @@
 			</div>
             
 			<script>
-                function fmt(n) { return n > 9 ? "" + n: "0" + n; }
+                function fmtZero(n) { return n > 9 ? "" + n: "0" + n; }
                 
-                function fixNumberBox(box, expVal, event) {
+                function fixNumberBox(box, isFmtZero) {
                     box = $(box);
                     var val = parseInt(box.val());
-                    if (!expVal)
-                        expVal = val;
                     
-                    if (isNaN(expVal)) {
+                    if (isNaN(val)) {
                         val = "";
                     }
                     else {
                         var max = box.attr("max");
-                        if (max) {
-                            if (expVal > max) {
-                                val = max;
-                                if (event) event.preventDefault();
-                            }
+                        if (max && val > max) {
+                            val = max;
                         }
                         
                         var min = box.attr("min");
-                        if (min) {
-                            if (expVal < min) {
-                                val = min;
-                                if (event) event.preventDefault();
-                            }
+                        if (min && val < min) {
+                            val = min;
                         }
                     }
+                    
+                    if (isFmtZero && isFmtZero === true)
+                        val = fmtZero(val);
                     
                     box.val(val);
                 }
                 
-                $("input[type=number]").bind("keydown", function(event) {
-                    var charCode = (event.which) ? event.which : event.keyCode
-                    if (charCode > 31 && (charCode < 48 || charCode > 57))  {
-                        event.preventDefault();
-                    }
-                    else {
-                        var addedChar = String.fromCharCode(charCode);
-                        var oldVal = parseInt($(this).val());
-                        var newVal = parseInt(oldVal + addedChar);
-                        if (isNaN(newVal)) {
-                            $(this).val("");
-                        }
-                        else {
-                            fixNumberBox(this, newVal, event);
-                        }
-                    }
-                });
                 $("input[type=number]").bind("change", function(event) {
-                    fixNumberBox(this);
+                    fixNumberBox(this, $(this).hasClass("fmt-zero"));
                 });
 			</script>
 		<button type="submit" class="btn btn-success" id="createbutton">Create</button>
