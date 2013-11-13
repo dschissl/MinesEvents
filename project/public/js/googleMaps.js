@@ -25,8 +25,6 @@ function initialize() {
         
         dropMarkers();
     }
-
-	
 }
 
 function dropMarkers(){
@@ -43,7 +41,7 @@ function dropMarkers(){
 function selectMarker(id) {
     for (var i = 0; i < markerArray.length; i++) {
         if (markerArray[i].getId() == id) {
-            markerArray[i].select();       
+            markerArray[i].select();
         }
     }
 }
@@ -57,7 +55,7 @@ function unselectAllMarkers() {
 function MinesMarker(el, infoEl) {
     var elem = $(el);
     var infoElem = $(infoEl);
-    this.id = elem.attr("id");
+    this.id = elem.attr("event_id");
     this.name = elem.attr("name");
     this.latitude = elem.attr("latitude");
     this.longitude = elem.attr("longitude");

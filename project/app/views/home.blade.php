@@ -48,7 +48,7 @@
                     $et = date_format(date_create($event->end_time), 'm/d/Y g:i A');
                     
                     echo 
-                        '<div class="list-group-item" onclick="selectMarker('.$event->event_id.');">
+                        '<div class="list-group-item" event_id="'.$event->event_id.'" onclick="selectMarker('.$event->event_id.');">
                             <h4 class="list-group-item-heading">'.$event->event_name.'</h4>
                             <small class="list-group-item-text">'.$st.' - '.$et.'</small>
                             <p class="list-group-item-text">'.$event->details.'</p>
@@ -56,7 +56,7 @@
                         </div>';
 
 					$markers = $markers.
-                        '<marker id="'.$event->event_id.'" name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>
+                        '<marker event_id="'.$event->event_id.'" name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>
                         <div>
                             <h4>'.$event->event_name.'</h4>
                             <p>'.$event->details.'</p>
