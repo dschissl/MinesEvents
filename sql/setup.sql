@@ -11,5 +11,12 @@ create table events
   end_time datetime not null,
   location char(150),
   details text(500)
-)
+);
   
+drop table if exists users;
+create table users
+( user_id int unsigned not null auto_increment primary key,
+  name varchar(100) not null,
+  email varchar(100) not null unique,
+  password varchar(100) not null
+);

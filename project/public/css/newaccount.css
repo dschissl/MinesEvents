@@ -1,0 +1,31 @@
+
+.inputpanel{
+	height:65%;
+	margin:auto;
+	padding:1%;
+}
+
+.inputpanel{
+	width:60%;
+	float:center;
+	background-color:rgba(170,170,170,0.2);
+	border-radius:6px;
+	border:1px #BBBBBB solid;
+	overflow-y:auto;
+}
+
+.input-group{
+	width:76%;
+	margin-bottom:3%;
+	margin-left:12%;
+}
+
+.inputpanel .btn{
+	width:50%;
+	margin-top:16px;
+}
+
+textarea{
+	height:25%;
+	width:100%;
+}

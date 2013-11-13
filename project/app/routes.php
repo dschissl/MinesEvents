@@ -31,3 +31,7 @@ Route::get('events/{id}', 'EventController@showDetail');
 Route::get('newaccount', 'AccountController@showNewAccount');
 
 Route::get('account', 'AccountController@showAccount');
+
+Route::post('accountcreated', 'AccountController@action_createaccount');
+
+Route::get('authenticate', 'AccountController@action_authenticate');
