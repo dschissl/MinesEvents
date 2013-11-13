@@ -114,6 +114,10 @@ MinesMarker.prototype.getInfoWindow = function() {
         content: me.infoHtml,
         maxWidth: 250
     });
+
+    google.maps.event.addListener(me.infoWindow, 'closeclick', function() {
+        me.unselect();
+    });
     
     return me.infoWindow;
 }
