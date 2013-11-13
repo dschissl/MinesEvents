@@ -79,8 +79,7 @@ MinesMarker.prototype.getMarker = function() {
     me.marker = new google.maps.Marker({
         title: me.name,
         map: myMap,
-        position: new google.maps.LatLng(me.latitude, me.longitude),
-        icon: "https://chart.googleapis.com/chart?chst=d_map_pin_letter_withshadow&chld=%E2%80%A2|85A5CC"   
+        position: new google.maps.LatLng(me.latitude, me.longitude)  
     });
         
 if (this.id != "-1"){
@@ -88,11 +87,10 @@ if (this.id != "-1"){
         me.select();
     });
     google.maps.event.addListener(me.getMarker(), 'mouseover', function() {
-        me.highlight(true);
+        me.hover(true);
     });
     google.maps.event.addListener(me.getMarker(), 'mouseout', function() {
-        if (!me.selected)
-            me.highlight(false);
+        me.hover(false);
     });
 }else{
 	google.maps.event.addListener(myMap,'click',function(event){
@@ -134,5 +132,15 @@ MinesMarker.prototype.unselect = function() {
 }
 
 MinesMarker.prototype.highlight = function(isHighlight) {
-    //change color maybe?
+    if (isHighlight && isHighlight === true) {
+        //this.getMarker().setIcon("https://chart.googleapis.com/chart?chst=d_map_pin_letter_withshadow&chld=%E2%80%A2|85A5CC");
+        this.getMarker().setIcon("img/blue.png");
+    }
+    else {
+        this.getMarker().setIcon("");
+    }
+}
+
+MinesMarker.prototype.hover = function(isHover) {
+    
 }
