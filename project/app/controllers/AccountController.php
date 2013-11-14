@@ -35,9 +35,12 @@ class AccountController extends BaseController {
 	{
 		$email = Input::get('email');
 		$password = Input::get('password');
-		if (Auth::attempt(array('email' => $email, 'password' => $password)))
+		if (Auth::attempt(array('email' => $email, 'password' => $password),1))
 		{
 			return Redirect::intended('/');
+		}
+		else{
+			return Redirect::intended('/newevent');
 		}
 		
 	}

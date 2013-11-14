@@ -5,6 +5,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
+	//For user id authentication with user_id instead of id
+	protected $primaryKey = 'user_id';
+
 	/**
 	 * The database table used by the model.
 	 *
