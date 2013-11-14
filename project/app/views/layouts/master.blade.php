@@ -16,7 +16,10 @@
       <div class="container">
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="<?php echo asset('/index.php/logout'); ?>" method="post" >
-            <button type="submit" class="btn btn-danger">Logout</button>
+			<div class="form-group">
+				<a class="navbar-brand" id="welcometext">Hi, {{Auth::user()->name}} ({{Auth::user()->email;}})</p></a>
+				<button type="submit" class="btn btn-danger">Logout</button>
+			</div>
           </form>
         </div><!--/.navbar-collapse -->
       </div>

@@ -92,3 +92,9 @@ p {
 	background-color:rgba(30,39,96,0.4);
 	border:1px black solid;
 }
+
+#welcometext{
+	color:#000000;
+	padding:0px;
+	margin-right:32px;
+}
