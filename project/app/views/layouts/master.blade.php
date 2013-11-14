@@ -11,16 +11,22 @@
 	{{ HTML::script('js/bootstrap.min.js'); }}
 	
 </head>
-    
+    @if(Auth::check())
+	<div class="navbar navbar-fixed-top">
+      <div class="container">
+	  <p>You are logged in</p>
+	  </div>
+	</div>
+	@else
 	<div class="navbar navbar-fixed-top">
       <div class="container">
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" action="<?php echo asset('/index.php/authenticate'); ?>" method="post" >
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" name="email" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
 			<a href="<?php echo asset('/index.php/newaccount'); ?>" class="tab register">Not a member?</a>
@@ -28,7 +34,7 @@
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-	
+	@endif
 <body>
     <div id="page">
         <header>

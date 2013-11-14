@@ -34,4 +34,4 @@ Route::get('account', 'AccountController@showAccount');
 
 Route::post('accountcreated', 'AccountController@action_createaccount');
 
-Route::get('authenticate', 'AccountController@action_authenticate');
+Route::post('authenticate', 'AccountController@action_authenticate');

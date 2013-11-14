@@ -35,7 +35,11 @@ class AccountController extends BaseController {
 	{
 		$email = Input::get('email');
 		$password = Input::get('password');
-		echo "Failed to login!";
+		if (Auth::attempt(array('email' => $email, 'password' => $password)))
+		{
+			return Redirect::intended('/');
+		}
+		
 	}
 	
 }
