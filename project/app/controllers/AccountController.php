@@ -44,5 +44,9 @@ class AccountController extends BaseController {
 		}
 		
 	}
+	public function action_logout(){
+		Auth::logout();
+		return Redirect::intended('/');
+	}
 	
 }

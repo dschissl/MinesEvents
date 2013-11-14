@@ -14,9 +14,13 @@
     @if(Auth::check())
 	<div class="navbar navbar-fixed-top">
       <div class="container">
-	  <p>You are logged in</p>
-	  </div>
-	</div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" action="<?php echo asset('/index.php/logout'); ?>" method="post" >
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 	@else
 	<div class="navbar navbar-fixed-top">
       <div class="container">
