@@ -16,7 +16,8 @@ Route::pattern('id', '[0-9]+');
 
 
 //HOME CONTROLLER
-Route::any('/', 'HomeController@showHome');
+Route::get('/', 'HomeController@showHome');
+Route::post('filter','HomeController@filterHome');
 
 Route::get('about', 'HomeController@showAbout');
 

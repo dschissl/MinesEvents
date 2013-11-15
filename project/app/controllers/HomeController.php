@@ -26,6 +26,12 @@ class HomeController extends BaseController {
 		$events = DB::table('events')->get();
 		return View::make('home')->with('events',$events);
 	}
+	public function filterHome(){
+		$query = DB::table('events');
+		$query=$query->where('details','like',"%".Input::get('contains')."%");
+		$events=$query->get();
+		return View::make('home')->with('events',$events);
+	}
 
     public function showAbout()
     {

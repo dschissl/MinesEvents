@@ -13,28 +13,28 @@
 @endsection
 
 @section('content')
-	<form method="post" action="">
+	<form method="post" action="<?php echo asset('/index.php/filter'); ?>">
 		<div class="input-group" id="searchgroup">
-			<input type="text" class="form-control" id="searchbar">
+			<input type="text" class="form-control" id="searchbar" name="search">
 				<span class="input-group-btn">
 					<button class="btn btn-default" type="submit">Search</button>
 				</span>
 		</div>
 		<div class="filterPanel">
 			<div class="input-group filters">
-				<span class="input-group-addon">Contains</span><input type="text" class="form-control" placeholder="Tutoring, Pizza, etc.">
+				<span class="input-group-addon">Contains</span><input type="text" class="form-control" placeholder="Tutoring, Pizza, etc." name="contains"/>
 			</div>
 			<div class="input-group filters">
-				<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="BBW250">
+				<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="BBW250" name="location" />
 			</div>
 			<div class="input-group filters">
-				<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc.">
+				<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc." name="group"/> 
 			</div>
 			<div class="input-group filters">	
-				<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystartfilter" name="daystart"></div>
+				<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystartfilter" name="daystart"/></div>
 			</div>
 			<div class="input-group filters">	
-				<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayendfilter" name="dayend"></div>
+				<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayendfilter" name="dayend"/></div>
 			</div>
 			<button type="submit" class="btn btn-success" id="filterbutton">Filter</button>
 		</div>
