@@ -23,15 +23,27 @@
 			<div class="input-group">	
 				<input type="text" class="form-control" placeholder="Full Name" name="name" required="required" />	
 			</div>
+			@if($errors->has('name'))
+				{{$errors->first('name')}}
+			@endif
 			<div class="input-group">	
 				<input type="text" class="form-control" placeholder="Email" name="email" required="required" />	
 			</div>
+			@if($errors->has('email'))
+				{{$errors->first('email')}}
+			@endif
 			<div class="input-group">	
 				<input type="password" class="form-control" placeholder="Password" name="password" required="required" />	
 			</div>
+			@if($errors->has('password'))
+				{{$errors->first('password')}}
+			@endif
 			<div class="input-group">	
-				<input type="password" class="form-control" placeholder="Confirm Password" name="confirmpassword" required="required" />	
+				<input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required="required" />	
 			</div>
+			@if($errors->has('password_confirmation'))
+				{{$errors->first('password_confirmation')}}
+			@endif
 			<button type="submit" class="btn btn-success" id="createbutton">Register</button>
 	</form>
 <div>

@@ -19,23 +19,28 @@ class AccountController extends BaseController {
 	
 	public function action_createaccount() 
     {
+		
 		$name = Input::get('name');
 		$email = Input::get('email');
         $password = Input::get('password');
-		$confirmpassword = Input::get('confirmpassword');
+		$validator = Validator::make(Input::all(), User::$rules);
 		
-		try {
-		$user = new User;
-		$user->name = $name;
-		$user->email = $email;
-		$user->password = Hash::make($password);
-		$user->save();
-		}catch( Exception $e ) {
-                return View::make('newaccount')->with('failed',"true");
-        }
-		Auth::attempt(array('email' => $email, 'password' => $password));
-        return View::make('accountcreated');
-    }
+		if($validator->passes()) {
+			try {
+			$user = new User;
+			$user->name = $name;
+			$user->email = $email;
+			$user->password = Hash::make($password);
+			$user->save();
+			}catch( Exception $e ) {
+					return View::make('newaccount')->with('failed',"true");
+			}
+			Auth::attempt(array('email' => $email, 'password' => $password));
+			return View::make('accountcreated');
+		} else {
+			return Redirect::to('newaccount')->withErrors($validator);
+		}
+	}
 	
 	 public function action_authenticate()
 	{
