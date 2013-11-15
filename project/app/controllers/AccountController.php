@@ -33,6 +33,7 @@ class AccountController extends BaseController {
 		}catch( Exception $e ) {
                 return View::make('newaccount')->with('failed',"true");
         }
+		Auth::attempt(array('email' => $email, 'password' => $password));
         return View::make('accountcreated');
     }
 	
