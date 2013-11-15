@@ -9,7 +9,12 @@ class AccountController extends BaseController {
 
     public function showAccount() 
     {
-        return View::make('account');
+		if(Auth::check()){
+			return View::make('account');
+		}
+		else{
+			return Redirect::to('newaccount');
+		}
     }
 	
 	public function action_createaccount() 
@@ -40,7 +45,7 @@ class AccountController extends BaseController {
 			return Redirect::intended('/');
 		}
 		else{
-			//stub
+			return Redirect::intended('/'); 
 		}
 		
 	}
