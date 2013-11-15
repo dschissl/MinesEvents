@@ -13,36 +13,38 @@
 @endsection
 
 @section('content')
-	<div class="input-group" id="searchgroup">
-		<input type="text" class="form-control" id="searchbar">
-			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">Search</button>
-			</span>
-    </div>
-	<div class="filterPanel">
-		<div class="input-group filters">
-			<span class="input-group-addon">Contains</span><input type="text" class="form-control" placeholder="Tutoring, Pizza, etc.">
+	<form method="post" action="">
+		<div class="input-group" id="searchgroup">
+			<input type="text" class="form-control" id="searchbar">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit">Search</button>
+				</span>
 		</div>
-		<div class="input-group filters">
-			<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="BBW250">
+		<div class="filterPanel">
+			<div class="input-group filters">
+				<span class="input-group-addon">Contains</span><input type="text" class="form-control" placeholder="Tutoring, Pizza, etc.">
+			</div>
+			<div class="input-group filters">
+				<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="BBW250">
+			</div>
+			<div class="input-group filters">
+				<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc.">
+			</div>
+			<div class="input-group filters">	
+				<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystartfilter" name="daystart"></div>
+			</div>
+			<div class="input-group filters">	
+				<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayendfilter" name="dayend"></div>
+			</div>
+			<button type="submit" class="btn btn-success" id="filterbutton">Filter</button>
 		</div>
-		<div class="input-group filters">
-			<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc.">
-		</div>
-		<div class="input-group filters">	
-			<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystart" name="daystart"></div>
-		</div>
-		<div class="input-group filters">	
-			<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayend" name="dayend"></div>
-		</div>
-		<button type="button" class="btn btn-success" id="filterbutton">Filter</button>
-	</div>
+	</form>
 
 	<div class="resultsPanel">
 		<div class="list-group">
             <?php
 				$markers = "";
-                $events = DB::table('events')->get();
+               
                 foreach ($events as $event) {
                     $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
                     $et = date_format(date_create($event->end_time), 'm/d/Y g:i A');

@@ -91,10 +91,12 @@ p {
 	width:100%;
 	background-color:rgba(30,39,96,0.4);
 	border:1px black solid;
+	height:52px;
 }
 
 #welcometext{
 	color:#000000;
 	padding:0px;
 	margin-right:32px;
+	margin-top:8px;
 }

@@ -23,7 +23,8 @@ class HomeController extends BaseController {
     
 	public function showHome()
 	{
-		return View::make('home');
+		$events = DB::table('events')->get();
+		return View::make('home')->with('events',$events);
 	}
 
     public function showAbout()
