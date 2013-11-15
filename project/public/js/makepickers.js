@@ -12,10 +12,16 @@ function loadPickers(){
 	 $("#daystart").datepicker({
 		format: 'yyyy-mm-dd'
 	});
+	$("#daystartfilter").datepicker({
+		format: 'yyyy-mm-dd'
+	});
 	
 	$("#daystart").datepicker('setValue',now);
 	
 	 $("#dayend").datepicker({
+		format: 'yyyy-mm-dd'
+	});
+	$("#dayendfilter").datepicker({
 		format: 'yyyy-mm-dd'
 	});
 	

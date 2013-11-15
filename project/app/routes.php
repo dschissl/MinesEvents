@@ -16,7 +16,7 @@ Route::pattern('id', '[0-9]+');
 
 
 //HOME CONTROLLER
-Route::get('/', 'HomeController@showHome');
+Route::any('/', 'HomeController@showHome');
 
 Route::get('about', 'HomeController@showAbout');
 
