@@ -38,7 +38,7 @@ class AccountController extends BaseController {
 			Auth::attempt(array('email' => $email, 'password' => $password));
 			return View::make('accountcreated');
 		} else {
-			return Redirect::to('newaccount')->withErrors($validator);
+			return Redirect::to('newaccount')->withErrors($validator)->withInput();
 		}
 	}
 	

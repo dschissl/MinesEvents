@@ -24,25 +24,25 @@
 				<span class="label label-danger"> {{$errors->first('name')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="text" class="form-control" placeholder="Full Name" name="name" required="required" />	
+				<input type="text" class="form-control" placeholder="Full Name" name="name" required="required" <?php if (Input::old('name') != ''){ echo 'value='.Input::old('name');}?> />	
 			</div>
 			@if($errors->has('email'))
 				<span class="label label-danger"> {{ $errors->first('email')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="text" class="form-control" placeholder="Email" name="email" required="required" />	
+				<input type="text" class="form-control" placeholder="Email" name="email" required="required" <?php if (Input::old('email') != ''){ echo 'value='.Input::old('email');}?> />	
 			</div>
 			@if($errors->has('password'))
 				<span class="label label-danger"> {{$errors->first('password')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="password" class="form-control" placeholder="Password" name="password" required="required" />	
+				<input type="password" class="form-control" placeholder="Password" name="password" required="required"/>	
 			</div>
 			@if($errors->has('password_confirmation'))
 				<span class="label label-danger"> {{$errors->first('password_confirmation')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required="required" />	
+				<input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required="required"/>	
 			</div>
 			<button type="submit" class="btn btn-success" id="createbutton">Register</button>
 	</form>
