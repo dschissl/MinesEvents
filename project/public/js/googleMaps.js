@@ -135,9 +135,6 @@ MinesMarker.prototype.unselect = function() {
 
 MinesMarker.prototype.highlight = function(isHighlight) {
     if (isHighlight && isHighlight === true) {
-		var path = document.location.pathname;
-		var dir = path.substring(path.indexOf('/', 1)+1, path.lastIndexOf('/'));
-		alert(path);
         //this.getMarker().setIcon("https://chart.googleapis.com/chart?chst=d_map_pin_letter_withshadow&chld=%E2%80%A2|85A5CC");
         this.getMarker().setIcon("/MinesEvents/project/public/img/blue.png");
     }
