@@ -44,6 +44,10 @@
 		<div class="list-group">
             <?php
 				$markers = "";
+				
+				if (empty($events)){
+					echo '<span class=\'label label-danger\'>No events could be found</span>';
+				}
                
                 foreach ($events as $event) {
                     $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
