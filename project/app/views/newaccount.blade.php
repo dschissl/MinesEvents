@@ -20,30 +20,30 @@
   		<p>Users can create new events, manage event groups, view private events, and more!</p>
 	</div>
 	 <form action="<?php echo asset('/index.php/accountcreated'); ?>" method="post">
+			@if($errors->has('name'))
+				<span class="label label-danger"> {{$errors->first('name')}} </span>
+			@endif
 			<div class="input-group">	
 				<input type="text" class="form-control" placeholder="Full Name" name="name" required="required" />	
 			</div>
-			@if($errors->has('name'))
-				{{$errors->first('name')}}
+			@if($errors->has('email'))
+				<span class="label label-danger"> {{ $errors->first('email')}} </span>
 			@endif
 			<div class="input-group">	
 				<input type="text" class="form-control" placeholder="Email" name="email" required="required" />	
 			</div>
-			@if($errors->has('email'))
-				{{$errors->first('email')}}
+			@if($errors->has('password'))
+				<span class="label label-danger"> {{$errors->first('password')}} </span>
 			@endif
 			<div class="input-group">	
 				<input type="password" class="form-control" placeholder="Password" name="password" required="required" />	
 			</div>
-			@if($errors->has('password'))
-				{{$errors->first('password')}}
+			@if($errors->has('password_confirmation'))
+				<span class="label label-danger"> {{$errors->first('password_confirmation')}} </span>
 			@endif
 			<div class="input-group">	
 				<input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required="required" />	
 			</div>
-			@if($errors->has('password_confirmation'))
-				{{$errors->first('password_confirmation')}}
-			@endif
 			<button type="submit" class="btn btn-success" id="createbutton">Register</button>
 	</form>
 <div>
