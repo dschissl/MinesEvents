@@ -24,7 +24,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	//Rules for validation
 	public static $rules = array(
-		'name' => 'required|alpha',
+		'name' => 'required',	//removed the alpha tag because it does not allow spaces to be in names. Upon doing research, it is basically recommended to just not validate names, because they could have special characters for foreign names and stuff
 		'email' => 'required|email',
 		'password' => 'required|confirmed|between:4,32',
 		'password_confirmation' => 'required|between:4,32',
