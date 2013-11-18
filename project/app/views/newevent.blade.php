@@ -23,6 +23,10 @@
                 <span class="input-group-addon">Location</span>
                 <input type="text" class="form-control" placeholder="Where it is" name="location" required="required" />	
             </div>
+		    <div class="input-group">	
+                <span class="input-group-addon">List Description</span>
+                <input type="text" class="form-control" placeholder="A short and eye-catching description" name="listdescription" required="required" />	
+            </div>
             <div class="input-group">	
                 <span class="input-group-addon">
                     <input type="checkbox" name="public" />
