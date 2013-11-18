@@ -28,7 +28,7 @@
                     <input type="checkbox" name="public" />
                 </span>
                 <fieldset disabled>
-                    <input type="text" class="form-control" placeholder="Public" />
+                    <input type="text" class="form-control" placeholder="Private" />
                 </fieldset>	
             </div>
             <!--<div class="input-group">	

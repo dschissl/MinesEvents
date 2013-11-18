@@ -10,6 +10,8 @@ create table events
   start_time datetime not null,
   end_time datetime not null,
   location char(150),
+  list_description char(100),
+  private boolean,
   details text(500)
 );
   
