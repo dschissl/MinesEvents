@@ -29,6 +29,7 @@
       <div class="container">
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="<?php echo asset('/index.php/authenticate'); ?>" method="post" >
+			<span class="invalidlogin">{{Session::get('loginMessage')}}{{Session::forget('loginMessage')}}</span>
             <div class="form-group">
               <input type="text" name="email" placeholder="Email" class="form-control">
             </div>
@@ -46,7 +47,8 @@
     <div id="page">
         <header>
             @section('header')
-				<h1 class="headertext">Mines Events</h1>
+				<!--<h1 class="headertext">Mines Events</h1>-->
+				<img src="<?php echo asset('/img/MinesEvents.png'); ?>">
 				<p class="headertext">Find out what's happening on campus</p>
             @show
         </header>

@@ -100,3 +100,8 @@ p {
 	margin-right:32px;
 	margin-top:8px;
 }
+
+.invalidLogin{
+	color:#CC0000;
+	margin-right:16px;
+}

@@ -51,7 +51,7 @@ class AccountController extends BaseController {
 			return Redirect::intended('/');
 		}
 		else{
-			return Redirect::intended('/'); 
+			return Redirect::intended('/')->with('loginMessage',"Invalid Login"); 
 		}
 		
 	}
