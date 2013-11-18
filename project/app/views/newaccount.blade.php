@@ -24,13 +24,13 @@
 				<span class="label label-danger"> {{$errors->first('name')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="text" class="form-control" placeholder="Name" name="name" required="required" <?php if (Input::old('name') != ''){ echo 'value='.Input::old('name');}?> />	
+				<input type="text" class="form-control" placeholder="Name" name="name" required="required" value="<?php echo Input::old('name'); ?>" />	
 			</div>
 			@if($errors->has('email'))
 				<span class="label label-danger"> {{ $errors->first('email')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="text" class="form-control" placeholder="Email" name="email" required="required" <?php if (Input::old('email') != ''){ echo 'value='.Input::old('email');}?> />	
+				<input type="text" class="form-control" placeholder="Email" name="email" required="required" value="<?php echo Input::old('email'); ?>"/>	
 			</div>
 			@if($errors->has('password'))
 				<span class="label label-danger"> {{$errors->first('password')}} </span>
