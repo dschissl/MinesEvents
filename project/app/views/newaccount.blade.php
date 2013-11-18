@@ -24,7 +24,7 @@
 				<span class="label label-danger"> {{$errors->first('name')}} </span>
 			@endif
 			<div class="input-group">	
-				<input type="text" class="form-control" placeholder="Full Name" name="name" required="required" <?php if (Input::old('name') != ''){ echo 'value='.Input::old('name');}?> />	
+				<input type="text" class="form-control" placeholder="Name" name="name" required="required" <?php if (Input::old('name') != ''){ echo 'value='.Input::old('name');}?> />	
 			</div>
 			@if($errors->has('email'))
 				<span class="label label-danger"> {{ $errors->first('email')}} </span>
