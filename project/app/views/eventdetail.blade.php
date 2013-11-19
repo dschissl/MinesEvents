@@ -19,12 +19,14 @@
 		}
 	?>
 	<div class='eventpanel'>
-		<h1>{{$event->event_name}}</h1>
-		<span class="infobigtext">
-			Where: <span class="infotext">{{$event->location}}</span><span class="tab" />
-			Time: <span class="infotext">{{$event->start_time}} - {{$event->end_time}}</span><span class="tab" />
-			Private: <span class="infotext">{{$private}}</span>
-		</span><hr class="separate">
+		<div class='info'>
+			<h1>{{$event->event_name}}</h1>
+			<span class="infobigtext">
+				Where: <span class="infotext">{{$event->location}}</span><span class="tab" />
+				Time: <span class="infotext">{{$event->start_time}} - {{$event->end_time}}</span><span class="tab" />
+				Private: <span class="infotext">{{$private}}</span>
+			</span><hr class="separate">
+		</div>
 		<span class="longtext">
 			{{$event->details}}
 		</span>

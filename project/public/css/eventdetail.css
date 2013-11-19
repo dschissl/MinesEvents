@@ -21,6 +21,7 @@
 	float:left;
 	height:600px;
 	overflow-y:auto;
+	text-align:left;
 }
 
 .longtext{
@@ -42,4 +43,7 @@
 	padding:1%;
 	width:50%;
 	margin-right:0px;
+}
+.info{
+	text-align:center;
 }
