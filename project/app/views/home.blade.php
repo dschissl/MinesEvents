@@ -57,7 +57,7 @@
                         '<div class="list-group-item" event_id="'.$event->event_id.'" onclick="selectMarker('.$event->event_id.');">
                             <h4 class="list-group-item-heading">'.$event->event_name.'</h4>
                             <small class="list-group-item-text">'.$st.' - '.$et.'</small>
-                            <p class="list-group-item-text">'.$event->details.'</p>
+                            <p class="list-group-item-text">'.$event->list_description.'</p>
 					       <a href="'.asset('/index.php/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';
 

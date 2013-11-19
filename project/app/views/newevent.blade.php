@@ -29,7 +29,7 @@
             </div>
             <div class="input-group">	
                 <span class="input-group-addon">
-                    <input type="checkbox" name="public" />
+                    <input type="checkbox" name="private" />
                 </span>
                 <fieldset disabled>
                     <input type="text" class="form-control" placeholder="Private" />

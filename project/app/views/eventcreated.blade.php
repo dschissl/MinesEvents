@@ -19,6 +19,12 @@
             $date->setTime($hours, $mins);
             return $date->format('Y-m-d H:i:s');
         }
+		
+		if (Input::get('private') == 'on'){
+			$private = true;
+		}else{
+			$private = false;
+		}
 
 		DB::table('events')->insert(
 			array(
@@ -30,7 +36,9 @@
 			'start_time' => getDateTimeString(Input::get('daystart'), Input::get('hourstart'), Input::get('minutestart'), Input::get('daypartstart')),
 			'end_time' => getDateTimeString(Input::get('dayend'), Input::get('hourend'), Input::get('minuteend'), Input::get('daypartend')),
 			'location' => Input::get('location'), 
-			'Details' => Input::get('description')
+			'list_description' => Input::get('listdescription'),
+			'isprivate' => $private,
+			'details' => Input::get('description')
 			)
 		);
 		
