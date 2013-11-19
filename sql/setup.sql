@@ -12,7 +12,7 @@ create table events
   location char(150),
   list_description char(100),
   isprivate boolean,
-  details text(500)
+  details text(4000)
 );
   
 drop table if exists users;
