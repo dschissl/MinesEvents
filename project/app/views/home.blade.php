@@ -61,11 +61,17 @@
 					       <a href="'.asset('/index.php/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';
 
+					if (strlen($event->details) > 200){
+						$overflow = "...";
+					}else{
+						$overflow = "";
+					}
+						
 					$markers = $markers.
                         '<marker event_id="'.$event->event_id.'" name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>
                         <div>
                             <h4>'.$event->event_name.'</h4>
-                            <p>'.$event->details.'</p>
+                            <p>'.substr($event->details,0,200).$overflow.'</p>
                             <a href="'.asset('/index.php/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';
                 }
