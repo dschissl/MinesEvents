@@ -1,0 +1,45 @@
+
+.infotext{
+	font-weight:normal;
+}
+
+.infobigtext{
+	font-weight:bold;
+}
+
+.tab{
+	margin-left:32px;
+}
+
+.eventpanel{
+	margin-top:16px;
+	width:50%;
+	border:1px #BBBBBB solid;
+	background-color:rgba(170,170,170,0.2);
+	border-radius:6px;
+	padding-bottom:32px;
+	float:left;
+	height:600px;
+	overflow-y:auto;
+}
+
+.longtext{
+	font-weight:normal;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.separate{
+	border:1px #AAAAAA solid;
+}
+
+#map-canvas{
+	height:600px;
+	width:100%;
+	margin-bottom:16px;
+}
+.mappanel{
+	margin:auto;
+	padding:1%;
+	width:50%;
+	margin-right:0px;
+}
