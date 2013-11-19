@@ -11,7 +11,7 @@ create table events
   end_time datetime not null,
   location char(150),
   list_description char(100),
-  private boolean,
+  isprivate boolean,
   details text(500)
 );
   
