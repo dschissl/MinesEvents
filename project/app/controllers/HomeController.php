@@ -23,11 +23,18 @@ class HomeController extends BaseController {
     
 	public function showHome()
 	{
-		$events = DB::table('events')->get();
+		$query = DB::table('events');
+		if (!Auth::check()) {
+			$query=$query->where('isprivate', false);
+		}
+		$events=$query->get();
 		return View::make('home')->with('events',$events);
 	}
 	public function filterHome(){
 		$query = DB::table('events');
+		if (!Auth::check()) {
+			$query=$query->where('isprivate', false);
+		}
 		$query=$query->where('details','like',"%".Input::get('contains')."%");
 		$events=$query->get();
 		return View::make('home')->with('events',$events);

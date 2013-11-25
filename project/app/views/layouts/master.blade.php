@@ -9,8 +9,9 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	
 	{{ HTML::script('js/bootstrap.min.js'); }}
-	
+	{{ HTML::script('js/master.js'); }}
 </head>
+
     @if(Auth::check())
 	<div class="navbar navbar-fixed-top">
       <div class="container">

@@ -50,8 +50,8 @@
 				}
                
                 foreach ($events as $event) {
-                    $st = date_format(date_create($event->start_time), 'm/d/Y g:i A');
-                    $et = date_format(date_create($event->end_time), 'm/d/Y g:i A');
+                    $st = date_format(date_create($event->start_time), 'M j, Y g:i A');
+                    $et = date_format(date_create($event->end_time), 'M j, Y g:i A');
                     
                     echo 
                         '<div class="list-group-item" event_id="'.$event->event_id.'" onclick="selectMarker('.$event->event_id.');">
@@ -61,11 +61,7 @@
 					       <a href="'.asset('/index.php/events/'.$event->event_id).'" class="eventLink">Show details</a>
                         </div>';
 
-					if (strlen($event->details) > 200){
-						$overflow = "...";
-					}else{
-						$overflow = "";
-					}
+					$overflow = (strlen($event->details) > 200) ? '...' : '';
 						
 					$markers = $markers.
                         '<marker event_id="'.$event->event_id.'" name="'.$event->event_name.'" latitude="'.$event->latitude.'" longitude="'.$event->longitude.'"></marker>
@@ -85,4 +81,17 @@
 	<div id="markerHolder" style="display:none;">
 		{{ $markers }}
 	</div>
+	<script type="text/javascript">
+		function initializeMinesMarker(me) {
+			google.maps.event.addListener(me.marker, 'click', function() {
+				me.select();
+			});
+			google.maps.event.addListener(me.marker, 'mouseover', function() {
+				me.hover(true);
+			});
+			google.maps.event.addListener(me.marker, 'mouseout', function() {
+				me.hover(false);
+			});
+		}
+	</script>
 @endsection

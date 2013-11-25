@@ -79,26 +79,10 @@ MinesMarker.prototype.getMarker = function() {
         map: myMap,
         position: new google.maps.LatLng(me.latitude, me.longitude)  
     });
-        
-if (this.id != "-1"){
-    google.maps.event.addListener(me.getMarker(), 'click', function() {
-        me.select();
-    });
-    google.maps.event.addListener(me.getMarker(), 'mouseover', function() {
-        me.hover(true);
-    });
-    google.maps.event.addListener(me.getMarker(), 'mouseout', function() {
-        me.hover(false);
-    });
-}else{
-	google.maps.event.addListener(myMap,'click',function(event){
-		me.marker.setMap(null);
-		me.marker.setPosition(event.latLng);
-		me.marker.setMap(myMap);
-		$('#lat').val(event.latLng.lat());
-		$('#long').val(event.latLng.lng());
-	});
-}
+
+	if (initializeMinesMarker) {
+		initializeMinesMarker(me);
+	}
     
     return me.marker;
 }
@@ -127,6 +111,10 @@ MinesMarker.prototype.select = function() {
     this.getInfoWindow().open(myMap, this.getMarker());
 }
 
+MinesMarker.prototype.center = function() {
+	myMap.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
+}
+
 MinesMarker.prototype.unselect = function() {
     this.selected = false;
     this.highlight(false);
@@ -151,5 +139,10 @@ MinesMarker.prototype.highlight = function(isHighlight) {
 }
 
 MinesMarker.prototype.hover = function(isHover) {
-    
+    if (isHover && isHover === true) {
+
+	}
+	else {
+
+	}
 }

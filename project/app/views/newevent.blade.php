@@ -75,51 +75,29 @@
 				<input type="hidden" name="lat" id="lat" value="39.751244"/>
 				<input type="hidden" name="long" id="long" value="-105.222260"/>
 			</div>
-            
-			<script>
-                function fmtZero(n) { return n > 9 ? "" + n: "0" + n; }
-                
-                function fixNumberBox(box, isFmtZero) {
-                    box = $(box);
-                    var val = parseInt(box.val());
-                    
-                    if (isNaN(val)) {
-                        val = "";
-                    }
-                    else {
-                        var max = box.attr("max");
-                        if (max && val > max) {
-                            val = max;
-                        }
-                        
-                        var min = box.attr("min");
-                        if (min && val < min) {
-                            val = min;
-                        }
-                    }
-                    
-                    if (isFmtZero && isFmtZero === true)
-                        val = fmtZero(val);
-                    
-                    box.val(val);
-                }
-                
-                $("input[type=number]").bind("change", function(event) {
-                    fixNumberBox(this, $(this).hasClass("fmt-zero"));
-                });
-			</script>
-		<button type="submit" class="btn btn-success" id="createbutton">Create</button>
-	</div>
-	<div class="mappanel">
-		<h5>Location</h5>
-		<div id="map-canvas">
-			<!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
+			<button type="submit" class="btn btn-success" id="createbutton">Create</button>
 		</div>
-		<h5>Description</h5>
-		<textarea rows="7" placeholder="Please enter a full detailed description of your event" name="description" required></textarea>
-	</div>
+		<div class="mappanel">
+			<h5>Location</h5>
+			<div id="map-canvas">
+				<!-- AIzaSyAXTdwWRRhOzQDa1lRcQ7PfKsuhV-XG78A is our API key, also used in the js call -->
+			</div>
+			<h5>Description</h5>
+			<textarea rows="7" placeholder="Please enter a full detailed description of your event" name="description" required></textarea>
+		</div>
 		<div id="markerHolder" style="display:none;">
 			<marker latitude="39.751244" longitude="-105.222260" event_id="-1" name="New Event"></marker>
 		</div>
+		<script type="text/javascript">
+			function initializeMinesMarker(me) {
+				google.maps.event.addListener(myMap, 'click', function(event) {
+					me.marker.setMap(null);
+					me.marker.setPosition(event.latLng);
+					me.marker.setMap(myMap);
+					$('#lat').val(event.latLng.lat());
+					$('#long').val(event.latLng.lng());
+				});
+			}
+		</script>
 	</form>
 @endsection
