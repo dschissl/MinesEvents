@@ -44,13 +44,13 @@
             <div class="input-group">	
                 <span class="input-group-addon">Start Date</span>	
                 <div data-date-format="yyyy-mm-dd">	
-                    <input class="form-control" type="text" id="daystart" name="daystart" />
+                    <input class="form-control" type="text" id="daystart" name="daystart" value="<?php echo date("m/d/Y"); ?>" />
                 </div>
             </div>
             <div class="input-group">	
                 <span class="input-group-addon">End Date</span>	
                 <div data-date-format="yyyy-mm-dd">	
-                    <input class="form-control" type="text" id="dayend" name="dayend" />
+                    <input class="form-control" type="text" id="dayend" name="dayend" value="<?php echo date("m/d/Y"); ?>" />
                 </div>
             </div>
             <div class="input-group">	

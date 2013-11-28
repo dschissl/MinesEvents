@@ -25,19 +25,22 @@ class HomeController extends BaseController {
 	{
 		$query = DB::table('events');
 		if (!Auth::check()) {
-			$query=$query->where('isprivate', false);
+			$query = $query->where('isprivate', false);
 		}
-		$events=$query->get();
-		return View::make('home')->with('events',$events);
+		$events = $query->get();
+		return View::make('home')->with('events', $events);
 	}
+    
 	public function filterHome(){
 		$query = DB::table('events');
 		if (!Auth::check()) {
-			$query=$query->where('isprivate', false);
+			$query = $query->where('isprivate', false);
 		}
-		$query=$query->where('details','like',"%".Input::get('contains')."%");
-		$events=$query->get();
-		return View::make('home')->with('events',$events);
+        if (Input::get('contains') != '') {
+            $query = $query->where('details', 'like', '%'.Input::get('contains').'%');
+        }
+		$events = $query->get();
+		return View::make('home')->with('events', $events);
 	}
 
     public function showAbout()

@@ -15,26 +15,35 @@
 @section('content')
 	<form method="post" action="<?php echo asset('/index.php/filter'); ?>">
 		<div class="input-group" id="searchgroup">
-			<input type="text" class="form-control" id="searchbar" name="search">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="submit">Search</button>
-				</span>
+			<input type="text" class="form-control" id="searchbar" name="search" value="<?php echo Input::get('search'); ?>" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</button>
+            </span>
 		</div>
 		<div class="filterPanel">
 			<div class="input-group filters">
-				<span class="input-group-addon">Contains</span><input type="text" class="form-control" placeholder="Tutoring, Pizza, etc." name="contains"/>
+				<span class="input-group-addon">Contains</span>
+                <input type="text" class="form-control" placeholder="Tutoring, Pizza, etc." name="contains"  value="<?php echo Input::get('contains'); ?>" />
 			</div>
 			<div class="input-group filters">
-				<span class="input-group-addon">Location</span><input type="text" class="form-control" placeholder="BBW250" name="location" />
+				<span class="input-group-addon">Location</span>
+                <input type="text" class="form-control" placeholder="BBW250" name="location" value="<?php echo Input::get('location'); ?>" />
 			</div>
 			<div class="input-group filters">
-				<span class="input-group-addon">Group</span><input type="text" class="form-control" placeholder="ACMx, MAC, etc." name="group"/> 
+				<span class="input-group-addon">Group</span>
+                <input type="text" class="form-control" placeholder="ACMx, MAC, etc." name="group" value="<?php echo Input::get('group'); ?>" /> 
 			</div>
 			<div class="input-group filters">	
-				<span class="input-group-addon">Start Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="daystartfilter" name="daystart"/></div>
+				<span class="input-group-addon">Start Date</span>	
+                <div data-date="12/02/2013" data-date-format="mm/dd/yyyy">	
+                    <input class="form-control" type="text" id="daystart" name="daystart" value="<?php echo (Input::get('daystart') != '') ? Input::get('daystart') : date('m/d/Y'); ?>" />
+                </div>
 			</div>
 			<div class="input-group filters">	
-				<span class="input-group-addon">End Date</span>	<div data-date="12-02-2012" data-date-format="dd-mm-yyyy">	<input class="form-control" type="text" id="dayendfilter" name="dayend"/></div>
+				<span class="input-group-addon">End Date</span>	
+                <div data-date="12/02/2013" data-date-format="mm/dd/yyyy">	
+                    <input class="form-control" type="text" id="dayend" name="dayend" value="<?php echo (Input::get('dayend') != '') ? Input::get('dayend') : date('m/d/Y'); ?>" />
+                </div>
 			</div>
 			<button type="submit" class="btn btn-success" id="filterbutton">Filter</button>
 		</div>

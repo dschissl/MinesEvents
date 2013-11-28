@@ -9,10 +9,10 @@ class AccountController extends BaseController {
 
     public function showAccount() 
     {
-		if(Auth::check()){
+		if (Auth::check()) {
 			return View::make('account');
 		}
-		else{
+		else {
 			return Redirect::to('newaccount');
 		}
     }
@@ -25,24 +25,26 @@ class AccountController extends BaseController {
         $password = Input::get('password');
 		$validator = Validator::make(Input::all(), User::$rules);
 		
-		if($validator->passes()) {
+		if ($validator->passes()) {
 			try {
-			$user = new User;
-			$user->name = $name;
-			$user->email = $email;
-			$user->password = Hash::make($password);
-			$user->save();
-			}catch( Exception $e ) {
-					return View::make('newaccount')->with('failed',"true");
+                $user = new User;
+                $user->name = $name;
+                $user->email = $email;
+                $user->password = Hash::make($password);
+                $user->save();
+			} 
+            catch(Exception $e) {
+                return View::make('newaccount')->with('failed',"true");
 			}
 			Auth::attempt(array('email' => $email, 'password' => $password));
 			return View::make('accountcreated');
-		} else {
+		} 
+        else {
 			return Redirect::to('newaccount')->withErrors($validator)->withInput();
 		}
 	}
 	
-	 public function action_authenticate()
+    public function action_authenticate()
 	{
 		$email = Input::get('email');
 		$password = Input::get('password');
@@ -50,8 +52,8 @@ class AccountController extends BaseController {
 		{
 			return Redirect::intended('/');
 		}
-		else{
-			return Redirect::intended('/')->with('loginMessage',"Invalid Login"); 
+		else {
+			return Redirect::intended('/')->with('loginMessage', 'Invalid Login'); 
 		}
 		
 	}
