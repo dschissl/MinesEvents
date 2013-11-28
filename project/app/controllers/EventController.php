@@ -9,10 +9,10 @@ class EventController extends BaseController {
     
 	public function showNewEvent()
 	{
-		if(Auth::check()){
+		if (Auth::check()) {
 			return View::make('newevent');
 		}
-		else{
+		else {
 			return Redirect::to('newaccount');
 		}
 	}

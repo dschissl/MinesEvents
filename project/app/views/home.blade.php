@@ -36,13 +36,13 @@
 			<div class="input-group filters">	
 				<span class="input-group-addon">Start Date</span>	
                 <div data-date="12/02/2013" data-date-format="mm/dd/yyyy">	
-                    <input class="form-control" type="text" id="daystart" name="daystart" value="<?php echo (Input::get('daystart') != '') ? Input::get('daystart') : date('m/d/Y'); ?>" />
+                    <input class="form-control" type="text" id="daystart" name="daystart" placeholder="<?php echo date('m/d/Y'); ?>" value="<?php echo Input::get('daystart'); ?>" />
                 </div>
 			</div>
 			<div class="input-group filters">	
 				<span class="input-group-addon">End Date</span>	
                 <div data-date="12/02/2013" data-date-format="mm/dd/yyyy">	
-                    <input class="form-control" type="text" id="dayend" name="dayend" value="<?php echo (Input::get('dayend') != '') ? Input::get('dayend') : date('m/d/Y'); ?>" />
+                    <input class="form-control" type="text" id="dayend" name="dayend" placeholder="<?php echo date('m/d/Y'); ?>" value="<?php echo Input::get('dayend'); ?>" />
                 </div>
 			</div>
 			<button type="submit" class="btn btn-success" id="filterbutton">Filter</button>

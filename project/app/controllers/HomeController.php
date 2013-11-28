@@ -36,8 +36,29 @@ class HomeController extends BaseController {
 		if (!Auth::check()) {
 			$query = $query->where('isprivate', false);
 		}
+        if (Input::get('search') != '') {
+            $query = $query->where('event_name', 'like', '%'.Input::get('search').'%')
+                ->orWhere('location', 'like', '%'.Input::get('search').'%')
+                ->orWhere('list_description', 'like', '%'.Input::get('search').'%')
+                ->orWhere('details', 'like', '%'.Input::get('search').'%');
+        }
         if (Input::get('contains') != '') {
             $query = $query->where('details', 'like', '%'.Input::get('contains').'%');
+        }
+        if (Input::get('location') != '') {
+            $query = $query->where('location', 'like', '%'.Input::get('location').'%');
+        }
+        if (Input::get('group') != '') {
+            $query = $query->where('list_description', 'like', '%'.Input::get('group').'%');
+        }
+        if (Input::get('daystart') != '') {
+            $start_date = new DateTime(Input::get('daystart'));
+            $query = $query->where('start_time', '>=', $start_date);
+        }
+        if (Input::get('dayend') != '') {
+            $end_date = new DateTime(Input::get('dayend'));
+            $end_date->setTime(23, 59);
+            $query = $query->where('end_time', '<=', $end_date);
         }
 		$events = $query->get();
 		return View::make('home')->with('events', $events);

@@ -20,9 +20,10 @@
             return $date->format('Y-m-d H:i:s');
         }
 		
-		if (Input::get('private') == 'on'){
+		if (Input::get('private') == 'on') {
 			$private = true;
-		}else{
+		} 
+        else {
 			$private = false;
 		}
 
