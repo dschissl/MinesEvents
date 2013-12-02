@@ -17,6 +17,7 @@ Route::pattern('id', '[0-9]+');
 
 //HOME CONTROLLER
 Route::get('/', 'HomeController@showHome');
+
 Route::post('filter','HomeController@filterHome');
 
 Route::get('about', 'HomeController@showAbout');
@@ -24,9 +25,11 @@ Route::get('about', 'HomeController@showAbout');
 //EVENT CONTROLLER
 Route::get('newevent', 'EventController@showNewEvent');
 
-Route::get('eventcreated', 'EventController@showEventCreated');
+Route::get('eventcreated', 'EventController@action_createevent');
 
 Route::get('events/{id}', 'EventController@showDetail');
+
+Route::get('deleteevent/{id}', 'EventController@action_deleteevent');
 
 //ACCOUNT CONTROLLER
 Route::get('newaccount', 'AccountController@showNewAccount');

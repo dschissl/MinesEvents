@@ -30,6 +30,12 @@
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
 
+.deletepanel{
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 .separate{
 	border:1px #AAAAAA solid;
 }
@@ -39,12 +45,14 @@
 	width:100%;
 	margin-bottom:16px;
 }
+
 .mappanel{
 	margin:auto;
 	padding:1%;
 	width:50%;
 	margin-right:0px;
 }
+
 .info{
 	text-align:center;
 }

@@ -9,10 +9,10 @@
 {{ HTML::style('css/newaccount.css') }}
 
 <?php
-		if ($failed == "true"){
-			echo '<div class="alert alert-danger"><strong>Failed!</strong> An account was found with that email!</div>';
-		}
-	?>
+	if (isset($failed) && $failed == "true"){
+		echo '<div class="alert alert-danger"><strong>Failed!</strong> An account was found with that email!</div>';
+	}
+?>
 
 <div class="inputpanel">
 	<div class="jumbotron">

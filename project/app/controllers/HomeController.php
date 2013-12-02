@@ -33,6 +33,7 @@ class HomeController extends BaseController {
     
 	public function filterHome(){
 		$query = DB::table('events');
+		$query = $query->leftJoin('users', 'events.user_id', '=', 'users.user_id');
 		if (!Auth::check()) {
 			$query = $query->where('isprivate', false);
 		}
@@ -49,7 +50,7 @@ class HomeController extends BaseController {
             $query = $query->where('location', 'like', '%'.Input::get('location').'%');
         }
         if (Input::get('group') != '') {
-            $query = $query->where('list_description', 'like', '%'.Input::get('group').'%');
+            $query = $query->where('name', 'like', '%'.Input::get('group').'%');
         }
         if (Input::get('daystart') != '') {
             $start_date = new DateTime(Input::get('daystart'));

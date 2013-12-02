@@ -10,39 +10,6 @@
 
 @section('content')
 	<?php
-        function getDateTimeString($dateStr, $hours, $mins, $dayPartStr) {
-            if ($dayPartStr == 'PM') {
-                $hours = $hours + 12;
-            }
-                
-            $date = new DateTime($dateStr);
-            $date->setTime($hours, $mins);
-            return $date->format('Y-m-d H:i:s');
-        }
-		
-		if (Input::get('private') == 'on') {
-			$private = true;
-		} 
-        else {
-			$private = false;
-		}
-
-		DB::table('events')->insert(
-			array(
-			'event_id' => null, 
-			'user_id' => 0, 
-			'event_name' => Input::get('name'), 
-			'latitude' => Input::get('lat'), 
-			'longitude' => Input::get('long'),
-			'start_time' => getDateTimeString(Input::get('daystart'), Input::get('hourstart'), Input::get('minutestart'), Input::get('daypartstart')),
-			'end_time' => getDateTimeString(Input::get('dayend'), Input::get('hourend'), Input::get('minuteend'), Input::get('daypartend')),
-			'location' => Input::get('location'), 
-			'list_description' => Input::get('listdescription'),
-			'isprivate' => $private,
-			'details' => Input::get('description')
-			)
-		);
-		
-		echo '<div class="alert alert-success"><strong>Success!</strong> You have created a new event!</div>';
+		echo '<div class="alert alert-success"><strong>Success!</strong> Your event has been created!</div>';
 	?>
 @endsection

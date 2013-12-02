@@ -19,7 +19,6 @@ class AccountController extends BaseController {
 	
 	public function action_createaccount() 
     {
-		
 		$name = Input::get('name');
 		$email = Input::get('email');
         $password = Input::get('password');

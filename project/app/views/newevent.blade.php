@@ -13,6 +13,12 @@
 @endsection
 
 @section('content')
+<?php
+	if (isset($failed) && $failed == "true"){
+		echo '<div class="alert alert-danger"><strong>Failed!</strong> Event failed to create!</div>';
+	}
+?>
+
     <form action="<?php echo asset('/index.php/eventcreated'); ?>" method="get">
         <div class="inputpanel">
             <div class="input-group">	
