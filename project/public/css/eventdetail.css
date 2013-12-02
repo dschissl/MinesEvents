@@ -1,3 +1,11 @@
+h1,h2,form{
+	display:inline;
+}
+
+#deleteButton{
+	margin-left:32px;
+	margin-top:-6px;
+}
 
 .infotext{
 	font-weight:normal;
@@ -5,6 +13,7 @@
 
 .infobigtext{
 	font-weight:bold;
+    margin-top:10px;
 }
 
 .tab{

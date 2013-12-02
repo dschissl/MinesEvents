@@ -21,7 +21,7 @@
 		</div>
 
 		@if($errors->has('password'))
-				<span class="label label-danger"> {{$errors->first('password')}} </span>
+            <span class="label label-danger"> {{$errors->first('password')}} </span>
 		@endif
 
 		<div class="input-group passForm">
