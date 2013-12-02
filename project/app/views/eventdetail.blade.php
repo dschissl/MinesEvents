@@ -19,6 +19,18 @@
 		$creator = $event->name;
 	?>
 	<div class='eventpanel'>
+		<form action="<?php echo asset('/index.php/deleteevent/'.$event->event_id); ?>" method="get">
+		<?php
+			if (Auth::check())
+			{
+				$user_id = Auth::user()->user_id;
+				if ($event->user_id == $user_id) {
+					echo '<div><button type="submit" class="btn btn-danger" id="deleteEvent">Delete</button></div>';
+				}
+			}
+		?>
+		</form>
+
 		<div class='info'>
 			<h1>{{$event->event_name}}</h1>
 			<span class="infobigtext">
@@ -32,20 +44,6 @@
 		<span class="longtext">
 			{{$event->details}}
 		</span>
-		<div class='deletepanel'>
-			<form action="<?php echo asset('/index.php/deleteevent/'.$event->event_id); ?>" method="get">
-			<?php
-				if (Auth::check())
-				{
-					$user_id = Auth::user()->user_id;
-					if ($event->user_id == $user_id) {
-						echo '<hr class="separate">';
-						echo '<div><button type="submit" class="btn btn-danger">Delete</button></div>';
-					}
-				}
-			?>
-			</form>
-		</div>
 	</div>
 	<div class="mappanel">
 		<div id="map-canvas">

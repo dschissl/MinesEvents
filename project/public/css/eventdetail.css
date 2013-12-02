@@ -30,12 +30,6 @@
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
 
-.deletepanel{
-	text-align:center;
-	margin-top:10px;
-	margin-bottom:10px;
-}
-
 .separate{
 	border:1px #AAAAAA solid;
 }
@@ -56,3 +50,8 @@
 .info{
 	text-align:center;
 }
+
+#deleteEvent{
+	float:right;
+}
+
