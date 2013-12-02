@@ -29,6 +29,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'password' => 'required|confirmed|between:4,32',
 		'password_confirmation' => 'required',	//removed between tag because it looks strange if you have an invalid length password, because it tells you in two places. Confirmation password must match, so it doesnt matter how long it must be
 	);
+
+public static $ruleschangepassword = array(
+		'password' => 'required|confirmed|between:4,32',
+		'password_confirmation' => 'required',
+	);
 	
 	/**
 	 * Get the unique identifier for the user.

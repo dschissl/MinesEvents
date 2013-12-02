@@ -41,3 +41,5 @@ Route::post('accountcreated', 'AccountController@action_createaccount');
 Route::post('authenticate', 'AccountController@action_authenticate');
 
 Route::post('logout', 'AccountController@action_logout');
+
+Route::get('changepassword','AccountController@changePassword');
