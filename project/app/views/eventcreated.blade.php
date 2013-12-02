@@ -10,6 +10,10 @@
 
 @section('content')
 	<?php
-		echo '<div class="alert alert-success"><strong>Success!</strong> Your event has been created!</div>';
+		if ($created == "true"){
+			echo '<div class="alert alert-success"><strong>Success!</strong> Your event has been created!</div>';
+		}else{
+			echo '<div class="alert alert-danger"><strong>Success!</strong> Your event has been deleted</div>';
+		}
 	?>
 @endsection

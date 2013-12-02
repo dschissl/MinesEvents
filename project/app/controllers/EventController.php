@@ -51,11 +51,12 @@ class EventController extends BaseController {
         catch(Exception $e) {
             return View::make('newevent')->with('failed',"true");
 		}
-		return View::make('eventcreated');
+		return View::make('eventcreated')->with('created',"true");;
 	}
 
 	public function action_deleteevent($id) {
-		return View::make('eventcreated');
+		DB::table('events')->where('event_id', '=', $id)->delete();
+		return View::make('eventcreated')->with('created',"false");
 	}
 
     public function showDetail($id) 
