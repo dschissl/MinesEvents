@@ -61,15 +61,21 @@ class AccountController extends BaseController {
 		return Redirect::intended('/');
 	}
 
-	public function changePassword(){
+	public function action_changepassword(){
 		$validator = Validator::make(Input::all(), User::$ruleschangepassword);
 		$password = Input::get('password');
 		if ($validator->passes()) {
 			DB::table('users')->where('user_id', '=', Auth::user()->user_id)->update(array('password' => Hash::make($password)));
 			return View::make('passwordChanged');
-		}else{
+		} else {
 			return Redirect::to('account')->withErrors($validator);
 		}
 	}
 	
+    public function action_deleteaccount() {
+        if (Auth::check()) {
+            Auth::logout(); 
+        }
+        return Redirect::intended('/');
+    }
 }
