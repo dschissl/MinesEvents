@@ -55,8 +55,14 @@ class EventController extends BaseController {
 	}
 
 	public function action_deleteevent($id) {
-		DB::table('events')->where('event_id', '=', $id)->delete();
-		return View::make('eventcreated')->with('created',"false");
+		if (Auth::check()){
+			$query = DB::table('events')->where('event_id', '=', $id)->where('user_id','=',Auth::user()->user_id);
+			if ($query->count() > 0) {
+				$query->delete();
+				return View::make('eventcreated')->with('created',"false");
+			}
+		}
+		return Redirect::to('/');
 	}
 
     public function showDetail($id) 
