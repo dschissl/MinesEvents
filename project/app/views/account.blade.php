@@ -8,11 +8,15 @@
 
 @section('content')
 	<div class="accountsection">	
+	<?php 
+	if (isset($wrong) && $wrong == "true"){
+		echo '<div class="alert alert-danger"><strong>Failed!</strong> Your old password was incorrect</div>';
+	}
+	?>
 		<h2 style="margin-right:32px;">{{Auth::user()->name}}</h2>
 		<h4>({{Auth::user()->email}})</h4>
 		<button class="btn btn-danger" id="deleteButton">Delete Account</button>
 		<div class="hr"></div>
-
 	<form action="<?php echo asset('/index.php/changepassword'); ?>" method="get">
 
 		<div class="input-group passForm">

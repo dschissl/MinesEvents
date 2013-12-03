@@ -4,7 +4,7 @@ class AccountController extends BaseController {
 
 	public function showNewAccount()
 	{
-		return View::make('newaccount')->with('failed',"false");;
+		return View::make('newaccount')->with('failed',"false");
 	}
 
     public function showAccount() 
@@ -64,12 +64,16 @@ class AccountController extends BaseController {
 	public function changePassword(){
 		$validator = Validator::make(Input::all(), User::$ruleschangepassword);
 		$password = Input::get('password');
-		if ($validator->passes()) {
-			DB::table('users')->where('user_id', '=', Auth::user()->user_id)->update(array('password' => Hash::make($password)));
-			return View::make('passwordChanged');
+		$old = Input::get('oldpass');
+		if (Hash::check($old,Auth::user()->password)){
+			if ($validator->passes()) {
+				DB::table('users')->where('user_id', '=', Auth::user()->user_id)->update(array('password' => Hash::make($password)));
+				return View::make('passwordChanged');
+			}else{
+				return Redirect::to('account')->withErrors($validator);
+			}
 		}else{
-			return Redirect::to('account')->withErrors($validator);
+			return View::make('account')->with('wrong',"true");
 		}
 	}
-	
 }
