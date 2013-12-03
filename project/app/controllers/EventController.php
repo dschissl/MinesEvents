@@ -70,7 +70,13 @@ class EventController extends BaseController {
 		$query = DB::table('events');
 		$query = $query->join('users', 'events.user_id', '=', 'users.user_id');
 		$query = $query->where('event_id', $id);
+		if (!Auth::check()) {
+			$query = $query->where('isprivate', false);
+		}
 		$event = $query->first();
-        return View::make('eventdetail')->with('event', $event);
+		if (isset($event)){
+       		return View::make('eventdetail')->with('event', $event);
+		}
+		return Redirect::to('/');
     }
 }
