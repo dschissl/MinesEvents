@@ -79,6 +79,7 @@ class AccountController extends BaseController {
 	
     public function action_deleteaccount() {
         if (Auth::check()) {
+			DB::table('users')->where('user_id', '=', Auth::user()->user_id)->delete();
             Auth::logout(); 
         }
         return Redirect::intended('/');
