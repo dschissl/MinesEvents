@@ -19,26 +19,26 @@
 		$creator = $event->name;
 	?>
 	<div class='eventpanel'>
-		<form action="<?php echo asset('/index.php/deleteevent/'.$event->event_id); ?>" method="get">
-		<?php
-			if (Auth::check())
-			{
-				$user_id = Auth::user()->user_id;
-				if ($event->user_id == $user_id) {
-					echo '<div><button type="submit" class="btn btn-danger" id="deleteEvent">Delete</button></div>';
-				}
-			}
-		?>
-		</form>
-
 		<div class='info'>
-			<h1>{{$event->event_name}}</h1>
-			<span class="infobigtext">
+			<h2>{{$event->event_name}}</h2>
+            <?php
+                if (Auth::check())
+                {
+                    $user_id = Auth::user()->user_id;
+                    if ($event->user_id == $user_id) {
+                        echo '
+                            <form action="'.asset('/index.php/deleteevent/'.$event->event_id).'" method="get">
+                                <button type="submit" class="btn btn-danger" id="deleteEvent">Delete Event</button>
+                            </form>';
+                    }
+                }
+            ?>	
+			<div class="infobigtext">
 				Where: <span class="infotext">{{$event->location}}</span><span class="tab" />
 				Time: <span class="infotext">{{$st}} - {{$et}}</span><span class="tab" />
 				Private: <span class="infotext">{{$private}}</span><span class="tab" />
 				Creator: <span class="infotext">{{$creator}}</span>
-			</span>
+			</div>
 			<hr class="separate">
 		</div>
 		<span class="longtext">

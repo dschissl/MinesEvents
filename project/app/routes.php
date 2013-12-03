@@ -42,4 +42,6 @@ Route::post('authenticate', 'AccountController@action_authenticate');
 
 Route::post('logout', 'AccountController@action_logout');
 
-Route::get('changepassword','AccountController@changePassword');
+Route::get('changepassword', 'AccountController@action_changepassword');
+
+Route::get('deleteaccount', 'AccountController@action_deleteaccount');
