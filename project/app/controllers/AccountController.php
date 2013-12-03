@@ -10,7 +10,9 @@ class AccountController extends BaseController {
     public function showAccount() 
     {
 		if (Auth::check()) {
-			return View::make('account');
+			$query = DB::table('events');
+			$events = $query->get();		
+			return View::make('account')->with('events', $events);
 		}
 		else {
 			return Redirect::to('newaccount');
@@ -65,15 +67,19 @@ class AccountController extends BaseController {
 		$validator = Validator::make(Input::all(), User::$ruleschangepassword);
 		$password = Input::get('password');
 		$old = Input::get('oldpass');
+		
+		$query = DB::table('events');
+		$events = $query->get();	
+		
 		if (Hash::check($old,Auth::user()->password)){
 			if ($validator->passes()) {
 				DB::table('users')->where('user_id', '=', Auth::user()->user_id)->update(array('password' => Hash::make($password)));
 				return View::make('passwordChanged');
 			}else{
-				return Redirect::to('account')->withErrors($validator);
+				return Redirect::to('account')->with('events', $events)->withErrors($validator);
 			}
 		}else{
-			return View::make('account')->with('wrong',"true");
+			return View::make('account')->with('wrong',"true")->with('events', $events);
 		}
 	}
 	

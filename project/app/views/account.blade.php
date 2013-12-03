@@ -50,19 +50,25 @@
     <div class="hr"></div>
     <h3>Events</h3>
     <div class="tablediv">
-    <table class="table table-hover" id="eventTable">
+    <table class="table" id="eventTable">
         <thead>
             <tr>
                 <th>Event Name</th>
                 <th>Description</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>My Event1</td>
-                <td>This is the list description for my event</td>
-            </tr>
-        </tbody>
+		 <?php
+			foreach ($events as $event) {
+				if($event->user_id == Auth::user()->user_id){
+					echo '<tbody>';
+					echo '<tr>';
+						echo '<td>'.'<a href="'.asset('/index.php/events/'.$event->event_id).'">'.($event->event_name).'</a></td>';
+						echo '<td>'.($event->list_description).'</td>';
+					echo '</tr>';
+					echo '</tbody>';
+				}
+			}
+		?>
     </table>
     </div>
 </div>
